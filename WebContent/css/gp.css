@@ -1,0 +1,37 @@
+
+#wrap_ {
+	min-width: 1080px;
+	position: relative;
+	display: block;
+	
+	
+}
+
+#slider1{
+margin-top:50px;
+}
+
+#slider2{
+margin-top:80px;
+}
+
+.list img {
+    height: 250px;
+}
+
+.list {
+	position: relative;
+}
+
+
+
+
+.party img {
+	
+	height: 250px;
+}
+
+.party {
+	position: relative;
+}
+

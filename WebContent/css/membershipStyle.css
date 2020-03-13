@@ -1,0 +1,50 @@
+#membership_totalbar{}
+
+#membership_totalbar div{
+   width : 400px;
+   padding : 11px 10px;
+   border : solid 1px;
+   margin : 10px;
+   background-color : white;
+
+}
+.year{ width : 110px;
+   
+   
+   background-color : white;
+   height: 33px;
+}
+.em{
+   width : 110px;
+   padding : 8px;
+   border : solid 1px;
+   margin : 10px;   
+}
+
+.l{text-align:left;}
+.b{background-color: #f5f6f8;}
+.f{width:280px;
+   height :30px;
+   border:0px;
+}
+.x{width:100px;}
+.q{width : 80px;
+   border:solid 1px;
+   padding: 5px;
+     }
+.o{width:380px;
+   border:0px;
+   height : 33px}
+
+#al{width : 400px; 
+   height : 0px;
+   margin : 0px;
+   padding : 0px;
+   visibility : hidden;
+   background-color :#f5f6f8;}
+#al2{width : 400px; 
+   height : 25px;
+   margin : 0px;
+   padding : 0px;
+   visibility : none;
+   background-color :#f5f6f8;}

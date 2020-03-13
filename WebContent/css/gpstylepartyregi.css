@@ -1,0 +1,254 @@
+header {
+
+ position:fixed;
+ top:0px;
+width : 100%;
+height : 85px;
+background-color:white;
+z-index : 200;
+}
+
+nav{
+width : 100%;
+height : 300px;
+z-index :100;
+border-bottom: solid 1px;
+margin-top: 34px;
+}
+
+#header-text{
+width : 600px; height : 30px;  position : fixed; left : 230px; top : 15px
+}
+#logo-width{
+width : 250px;
+height : 85px;
+margin-left : 20px;
+}
+#text-width{
+    position: relative;
+    left: 256px;
+	top : 25px;
+    width: 500px;
+    height: 45px;
+    border: none;
+}
+
+body{width : 1920px; margin : 0 auto}
+/*----------네비 스타일-------------*/
+#location{
+width: 500px;
+height : 236px;
+position : relative;
+top :61px ;
+left : 60px;
+}
+
+#menu{
+width: 500px;
+height : 238px;
+position : relative;
+top : -177px;
+left : 588px;
+}
+
+#price-recommend{
+width: 500px;
+height : 239px;
+position : relative;
+top : -418px;
+left : 1174px;
+}
+
+#location-bar{
+width: 500px;
+height : 40px;
+position : relative;
+text-align : center;
+}
+
+#location-li{
+width: 500px;
+height : 195px;
+position : relative;
+top : 0px;
+}
+
+#ul-margin{
+padding-left : 0px;
+margin-top : 0px;
+margin-bottom : 0px;
+}
+#menu-bar{
+width: 500px;
+height : 90px;
+
+position : relative;
+text-align : center;
+}
+#price-bar{
+width : 500px;
+height : 100px;
+position : relative;
+}
+#price-ul{
+display:inline-block;
+}
+#menu-li{
+display:inline-block;
+margin-left : 30px;
+}
+
+html { height: 100%; }
+
+
+.boxes {
+  margin: auto;
+  padding: 0px;
+  background: white;
+}
+
+
+input[type="checkbox"] { display: none; }
+
+input[type="checkbox"] + label {
+  display: block;
+  position: relative;
+  padding-left: 33px;
+  margin-bottom: 20px;
+  font: 15px/25px 'Open Sans', Arial, sans-serif;
+  color: black;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+input[type="checkbox"] + label:last-child { margin-bottom: 0; }
+
+input[type="checkbox"] + label:before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #1e945a;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .6;
+  -webkit-transition: all .12s, border-color .08s;
+  transition: all .12s, border-color .08s;
+}
+
+input[type="checkbox"]:checked + label:before {
+  width: 10px;
+  top: -5px;
+  left: 5px;
+  border-radius: 0;
+  opacity: 1;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.boxes li{
+display : inline-block;
+}
+
+#dd{
+width : 500px;
+height : 20px;
+}
+.boxes li{
+margin-bottom : 10px;
+}
+#menu img{
+width : 60px;
+height : 73px;
+}
+#menu-ul{
+
+    padding-left: 0px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+
+}
+#price-recommend img{
+width : 60px;
+height : 73px;
+}
+
+#recommend-img{
+
+}
+#recommend-img img{
+width : 180px;
+height : 50px;
+}
+#button-box{
+    width: 86px;
+    height: 56px;
+    border: solid 1px;
+    position: relative;
+    left: 504px;
+    top: -155px;
+	 color: #fff;
+  background-color: #1e945a;
+  border-color: #4cae4c;
+  border-radius:5px 5px 5px 5px;
+}
+#button-box:hover,#button-box.hover {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #398439;
+  background-color: #419641;
+  
+  }
+  #button-box:active,  #button-box.active{
+  background-color: #419641;
+  border-color: #3e8f3e;
+  background-image: none;
+  }
+
+/*-------------부터 스타일------------------*/
+
+#footer {
+	width: 100%;
+	padding: 33px 0 0 0;
+	background: #1d9c59;
+	font-size: 11px;
+	display: block;
+	margin-top:0px;
+}
+
+#footerinner {
+	width: 940px;
+	margin: 0 0;
+	line-height: 14px;
+	overflow: hidden;
+	display: block;
+}
+
+#ftleft {
+	float: left;
+	display: block;
+}
+
+#ftleft ul {
+	padding-left: 0px;
+}
+
+#ftleft li {
+	display: inline;
+	font-size: 8pt;
+	font-weight: bold;
+	color: white;
+}
+
+#footer p {
+	margin-top: 23px;
+	color: white;
+	line-height: 16px;
+	woer-spacing: -1px;
+	display: block;
+}

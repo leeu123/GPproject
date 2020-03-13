@@ -1,0 +1,86 @@
+/*-----헤더부분 스타일-----------*/
+header {
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	height: 85px;
+	background-color: white;
+	z-index: 200;
+}
+
+#logo-width {
+	width: 250px;
+	height: 85px;
+	margin-left: 20px;
+}
+
+#text-width {
+	position: relative;
+	left: 256px;
+	top: 10px;
+	width: 500px;
+	height: 30px;
+	border: none;
+}
+
+body {
+	width: 1920px;
+	margin: 0 auto
+}
+
+/*------------section부분 스타일-------------*/
+#write_button {
+	margin-left: 0px;
+}
+
+#write-bar {
+	width: 50%;
+	position: absolute;
+	left: 480px;
+	margin-top: 110px;
+}
+
+/*---------부터부분 스타일----------*/
+#footer {
+	width: 100%;
+	padding: 33px 0 0 0;
+	background: #1d9c59;
+	font-size: 11px;
+	display: block;
+	margin-top: 0px;
+}
+
+#footerinner {
+	width: 940px;
+	margin: 0 0;
+	line-height: 14px;
+	overflow: hidden;
+	display: block;
+}
+
+#ftleft {
+	float: left;
+	display: block;
+}
+
+#ftleft ul {
+	padding-left: 0px;
+}
+
+#ftleft li {
+	display: inline;
+	font-size: 8pt;
+	font-weight: bold;
+	color: white;
+}
+
+#footer p {
+	margin-top: 23px;
+	color: white;
+	line-height: 16px;
+	woer-spacing: -1px;
+	display: block;
+}
+
+
+/*  리뷰게시판 정보 css  */

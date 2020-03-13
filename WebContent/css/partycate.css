@@ -1,0 +1,31 @@
+
+/*----------section��Ÿ��------------*/
+#board_bar{
+width : 60%;
+margin : 0 auto;
+
+}
+#board_box{
+width : 100%;
+height : 60px;
+
+margin-bottom: 15px;
+}
+#review{
+display : inline-block;
+}
+#paging_bar{
+width : 100%;
+}
+#paging_img_location{
+margin-left : 150px;
+}
+#board_serch{
+width : 100%;
+margin-bottom: 15px;
+}
+#write_button{
+margin-left : 0px;
+}
+
+/*---------���ͽ�Ÿ��----------------*/

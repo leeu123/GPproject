@@ -1,0 +1,114 @@
+$(document).ready(function(){ 
+	$("article").mouseover(function(){
+		$("article").css("background-image","url('img/party1.jpg')");
+		$("article").css("transition-duration","1s");
+	});
+}); 
+$(document).ready(function(){ 
+	$("article").mouseout(function(){ 
+		$("article").css("background-image","url('img/party.jpg')");
+		$(this).css("transition-duration","1s");
+	});
+});
+
+/* nah mouseover mouseout µø¿€   */
+$(document).ready(function(){
+	  $(".navbox[name$='party']").mouseover(function(){
+		$(".navbox[name$='party']").css("color","white");
+		$(".navbox[name$='party']").css("background-color","black");
+		$(".navbox[name$='party']").css("cursor","pointer");
+		$("#par").css("visibility","visible");
+		$("#par").css("opacity","1");
+		});
+   });
+   $(document).ready(function(){
+	  $(".navbox[name$='party']").mouseout(function(){
+		 $(".navbox[name$='party']").css("color","black");
+		$(".navbox[name$='party']").css("background-color","white");
+		$("#par").css("visibility","hidden");
+		$("#par").css("opacity","0");
+		});
+   });
+$(document).ready(function(){
+$("#par").mouseover(function(){
+	    $(".navbox[name$='party']").css("color","white");
+		$(".navbox[name$='party']").css("background-color","black");
+		$(".navbox[name$='party']").css("cursor","pointer");
+		$("#par").css("visibility","visible");
+		$("#par").css("opacity","1");
+		});
+	});
+$(document).ready(function(){
+	    $("#par").mouseout(function(){
+	    $(".navbox[name$='party']").css("color","black");
+		$(".navbox[name$='party']").css("background-color","white");
+		$("#par").css("visibility","hidden");
+		$("#par").css("opacity","0");
+		});
+	});
+
+	$(document).ready(function(){
+	  $(".navbox[name$='board']").mouseover(function(){
+		$(".navbox[name$='board']").css("color","white");
+		$(".navbox[name$='board']").css("background-color","black");
+		$(".navbox[name$='board']").css("cursor","pointer");
+		$("#boa").css("visibility","visible");
+		$("#boa").css("opacity","1");
+		});
+   });
+   $(document).ready(function(){
+	  $(".navbox[name$='board']").mouseout(function(){
+		$(".navbox[name$='board']").css("color","black");
+		$(".navbox[name$='board']").css("background-color","white");
+		$("#boa").css("visibility","hidden");
+		$("#boa").css("opacity","0");
+		});
+   });
+   $(document).ready(function(){
+   $("#boa").mouseover(function(){
+	    $(".navbox[name$='board']").css("color","white");
+		$(".navbox[name$='board']").css("background-color","black");
+		$(".navbox[name$='board']").css("cursor","pointer");
+		$("#boa").css("visibility","visible");
+		$("#boa").css("opacity","1");
+		});
+	});
+    $(document).ready(function(){
+	    $("#boa").mouseout(function(){
+	    $(".navbox[name$='board']").css("color","black");
+		$(".navbox[name$='board']").css("background-color","white");
+		$("#boa").css("visibility","hidden");
+		$("#boa").css("opacity","0");
+		});
+	});
+
+    	$(document).ready(function(){
+	  $(".navbox[name$='list']").mouseover(function(){
+		$(".navbox[name$='list']").css("color","white");
+		$(".navbox[name$='list']").css("background-color","black");
+		$(".navbox[name$='list']").css("cursor","pointer");
+		
+		});
+   });
+   $(document).ready(function(){
+	  $(".navbox[name$='list']").mouseout(function(){
+		 $(".navbox[name$='list']").css("color","black");
+		$(".navbox[name$='list']").css("background-color","white");
+		
+		});
+   });
+   $(document).ready(function(){
+	  $("#loginButton").mouseover(function(){
+		$("#loginButton").css("color","white");
+		$(".navbox[name$='log']").css("background-color","black");
+		$("#loginButton").css("cursor","pointer");
+		
+		});
+   });
+   $(document).ready(function(){
+	  $("#loginButton").mouseout(function(){
+		 $("#loginButton").css("color","black");
+		$(".navbox[name$='log']").css("background-color","white");
+		});
+   });
+/*------------------------------------------------------*/

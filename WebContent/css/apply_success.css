@@ -1,0 +1,23 @@
+@charset "utf-8";
+
+article {
+	background-image: url('../img/party.jpg');
+	width: 1900px;
+	height: 300px;
+	color: white;
+	font-size: 5cm;
+	float:left;
+}
+
+#ptitle {
+	width: 1900px;
+	height: 60px;
+	text-align: center;
+}
+
+section { 
+	float:left;
+	width : 1920px;
+	height: 600px;
+	margin: 0 auto;
+}

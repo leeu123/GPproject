@@ -1,0 +1,201 @@
+* {
+	margin: 0 auto;
+}
+/*  ----------------------------------------------*/
+section {
+	float: left;
+	width: 100%;
+	height: 1400px;
+}
+
+article {
+	background-image: url('../img/party.jpg');
+	float: left;
+	width: 100%;
+	height: 300px;
+	color: white;
+	font-size: 5cm;
+	background-size: 100% 100%;
+}
+
+#ptitle {
+	float: left;
+	width: 100%;
+	height: 60px;
+	text-align: center;
+}
+
+#pic {
+	float: left;
+	margin: 0 auto;
+	width: 100%;
+	height: 952px;
+}
+
+#section {
+	width: 1500px;
+	height: 952px;
+	border: solid 1px green;
+	border-radius: 15px;
+}
+
+.picbox {
+	float: left;
+	width: 422px;
+	height: 374px;
+	border: solid 1px green;
+	margin: 40px 35px 40px 35px;
+}
+
+.pictitle {
+	float: left;
+	width: 400px;
+	height: 60px;
+	margin: 0px 10px 0px 10px;
+	border: solid 1px green;
+	font-size:1.1cm; 
+	font-weight:700; 
+	text-align:center;
+}
+
+
+.partypic {
+	float: left;
+	width: 400px;
+	height: 360px;
+	margin: 10px 10px 0px 10px;
+	border: solid 1px green;
+}
+
+.partypic[name$="kor"] {
+	float: left;
+	width: 400px;
+	height: 300px;
+	margin: 10px 10px 0px 10px;
+	border: solid 1px green;
+	background-image: url("../img/korea.jpg");
+	background-size: 400px 300px;
+	
+}
+
+.partypic[name$="chn"] {
+	float: left;
+	width: 400px;
+	height: 300px;
+	margin: 10px 10px 0px 10px;
+	border: solid 1px green;
+	background-image: url("../img/china.jpg");
+	background-size: 400px 300px;
+}
+
+.partypic[name$="jpn"] {
+	float: left;
+	width: 400px;
+	height: 300px;
+	margin: 10px 10px 0px 10px;
+	border: solid 1px green;
+	background-image: url("../img/japan.jpg");
+	background-size: 400px 300px;
+}
+
+.partypic[name$="wes"] {
+	float: left;
+	width: 400px;
+	height: 300px;
+	margin: 10px 10px 0px 10px;
+	border: solid 1px green;
+	background-image: url("../img/western.jpg");
+	background-size: 400px 300px;
+}
+
+.partypic[name$="wor"] {
+	float: left;
+	width: 400px;
+	height: 300px;
+	margin: 10px 10px 0px 10px;
+	border: solid 1px green;
+	background-image: url("../img/world.jpg");
+	background-size: 400px 300px;
+}
+
+.partypic[name$="what"] {
+	float: left;
+	width: 400px;
+	height: 300px;
+	margin: 10px 10px 0px 10px;
+	border: solid 1px green;
+	background-image: url("../img/whatever.jpg");
+	background-size: 400px 300px;
+}
+
+#korea {
+	width: 400px;
+	height: 300px;
+	color: black;
+	font-size: 0.9cm;
+	font-weight: 600;
+	text-align: center;
+	visibility: hidden;
+	background-color: white;
+	opacity: 0.9;
+}
+
+#china {
+	width: 400px;
+	height: 300px;
+	color: black;
+	font-size: 0.9cm;
+	font-weight: 600;
+	text-align: center;
+	visibility: hidden;
+	background-color: white;
+	opacity: 0.8;
+}
+
+#japan {
+	width: 400px;
+	height: 300px;
+	color: black;
+	font-size: 0.9cm;
+	font-weight: 600;
+	text-align: center;
+	visibility: hidden;
+	background-color: white;
+	opacity: 0.8;
+}
+
+#western {
+	width: 400px;
+	height: 300px;
+	color: black;
+	font-size: 0.9cm;
+	font-weight: 600;
+	text-align: center;
+	visibility: hidden;
+	background-color: white;
+	opacity: 0.8;
+}
+
+#world {
+	width: 400px;
+	height: 300px;
+	color: black;
+	font-size: 0.9cm;
+	font-weight: 600;
+	text-align: center;
+	visibility: hidden;
+	background-color: white;
+	opacity: 0.8;
+}
+
+#whatever {
+	width: 400px;
+	height: 300px;
+	color: black;
+	font-size: 0.9cm;
+	font-weight: 600;
+	text-align: center;
+	visibility: hidden;
+	background-color: white;
+	opacity: 0.8;
+}

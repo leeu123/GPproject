@@ -1,0 +1,63 @@
+$(document).ready(function(){ 
+	$("article").mouseover(function(){
+		$("article").css("background-image","url('img/party1.jpg')");
+		$("article").css("transition-duration","1s");
+	});
+}); 
+$(document).ready(function(){ 
+	$("article").mouseout(function(){ 
+		$("article").css("background-image","url('img/party.jpg')");
+		$(this).css("transition-duration","1s");
+	});
+});
+$(document).ready(function(){
+	$(".partypic[name$='sam']").mouseover(function(){
+		//$(".partypic[name$='sam']").css("background","black");
+		$(".partypic[name$='sam']").css("opacity","0.3");
+		$(".partypic[name$='sam']").css("cursor","pointer");
+
+		});
+	$(".partypic[name$='sam']").mouseout(function(){
+		$(".partypic[name$='sam']").css("opacity","1");
+		});
+	
+	$(".partypic[name$='jock']").mouseover(function(){
+		$(".partypic[name$='jock']").css("opacity","0.3");
+		$(".partypic[name$='jock']").css("cursor","pointer");
+		});
+	$(".partypic[name$='jock']").mouseout(function(){
+		$(".partypic[name$='jock']").css("opacity","1");
+		});
+	
+	$(".partypic[name$='bos']").mouseover(function(){
+		$(".partypic[name$='bos']").css("opacity","0.3");
+		$(".partypic[name$='bos']").css("cursor","pointer");
+		});
+	$(".partypic[name$='bos']").mouseout(function(){
+		$(".partypic[name$='bos']").css("opacity","1");
+		});
+	
+	$(".partypic[name$='chi']").mouseover(function(){
+		$(".partypic[name$='chi']").css("opacity","0.3");
+		$(".partypic[name$='chi']").css("cursor","pointer");
+		});
+	$(".partypic[name$='chi']").mouseout(function(){
+		$(".partypic[name$='chi']").css("opacity","1");
+		});
+	
+	$(".partypic[name$='bang']").mouseover(function(){
+		$(".partypic[name$='bang']").css("opacity","0.3");
+		$(".partypic[name$='bang']").css("cursor","pointer");
+		});
+	$(".partypic[name$='bang']").mouseout(function(){
+		$(".partypic[name$='bang']").css("opacity","1");
+		});
+	
+	$(".partypic[name$='gob']").mouseover(function(){
+		$(".partypic[name$='gob']").css("opacity","0.3");
+		$(".partypic[name$='gob']").css("cursor","pointer");
+		});
+	$(".partypic[name$='gob']").mouseout(function(){
+		$(".partypic[name$='gob']").css("opacity","1");
+		});
+	});

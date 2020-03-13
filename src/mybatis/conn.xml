@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- DB연결 -->
+<!DOCTYPE configuration	PUBLIC "-//mybatis.org//DTD Config 3.0//EN"	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+	
+		<typeAlias type="party.PartyDTO" alias="pt"/>
+		<typeAlias type="party.Preview" alias="pr"/>
+		<typeAlias type="party.ApplyDTO" alias="ap"/>
+		<typeAlias type="resdat.resdatDTO" alias="rs"/>
+		<typeAlias type="vo.DTO_AD" alias="ad"/>
+		<typeAlias type="vo.ReviewBean" alias="rb"/>
+		<typeAlias type="member.MemberDTO" alias="mb"/>
+		
+		
+		
+	</typeAliases>
+
+
+<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost/gpteam?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8" />
+				<property name="username" value="root" />
+				<property name="password" value="12345" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+<mappers>
+	<mapper resource="mybatis/mapper.xml"/>
+</mappers>
+
+</configuration>
+
+

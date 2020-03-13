@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+article {
+	background-image: url('img/masjip01_.png');
+	width: 100%;
+	height: 200px;
+	color: white;
+	font-size: 5cm;
+	float:left;
+}
+
+#ptitle {
+	width: 100%;
+	height: 60px;
+	text-align: center;
+}
+
+section { 
+	float:left;
+	width : 1920px;
+	margin: 0 auto;
+}
+#mat{
+	float:left;
+	width:100%;
+}
+#ma{
+	padding-top:50px;
+	float:left;
+	width:30%;
+}

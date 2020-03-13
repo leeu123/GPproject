@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+encoding//WebContent/css/restaurant.css=UTF-8
+encoding//WebContent/nav.jsp=UTF-8
+encoding//src/controll/partyCommandInter.java=UTF-8
+encoding//src/controll/partyControllerServlet.java=UTF-8
+encoding//src/controll/partyService.java=UTF-8
+encoding//src/hoogi/HoogiDAO.java=UTF-8
+encoding//src/member/License_DAO.java=UTF-8
+encoding//src/member/MemberDAO.java=UTF-8
+encoding//src/model/Action.java=UTF-8
+encoding//src/resdat/resdatDAO.java=UTF-8
+encoding//src/restaurant/restauAction.java=UTF-8
+encoding//src/restaurantDAO/RestaurantDAO.java=UTF-8
+encoding//src/review_dao/ReviewDAO.java=UTF-8

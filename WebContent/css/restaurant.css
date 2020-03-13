@@ -1,0 +1,180 @@
+/*-----------------�꽮�뀡 �뒪���씪--------------------------*/
+  *{margin:0 auto;}
+
+  section{ clear:both;width:1900px; height:2100px;  }
+  .section{ float:left; width:1320px; height:1850px;}
+  article{  float:left; width:800px; height:1499px; }
+  #resta{ float:left;width:570px; height:1850px; }
+  #rename{ float:left; width:498px; height:100px; border-bottom:solid 1px gray;}
+  #review{float:left; width:98px; height:100px; border-bottom:solid 1px gray;}
+  #wanngo{float:left; width:98px; height:100px; border-bottom:solid 1px gray;}
+  #reserve{float:left; width:98px; height:100px; border-bottom:solid 1px gray; padding:30px 0px 0px 0px; }
+  #restau1{float:left; width:398px; height:800px; border-right:solid 1px gray;}
+
+  #restau1 td:nth-child(2n){width:350px;  padding:10px; height:50px;}
+  #restau1 td:nth-child(2n+1){ border-right:solid 2px gray; width:100px; height:50px;}
+  
+  
+  #restau2{float:left; width:770px; height:270px; text-align:center; }
+  #mypage{float:left; width: 500px; height:400px;  margin:20px 25px 20px 25px;}
+  #map{height:364px;}
+  #recommand{float:left; width: 500px; height:750px;  margin:20px 25px 20px 40px;}
+
+  .write{float:left; width:700px; height:200px; border:solid 1px gray; margin: 20px 49px 20px 20px;}
+  .button{ float:right; width:100px; height:30px; border:solid 1px gray; margin:0px 20px 0px 0px;}
+  
+ #dat{width:100px;  height:30px;
+  text-shadow: 0 1px 0 #fff;
+  background-image: -webkit-linear-gradient(top, #fff 0%, #e0e0e0 100%);
+  background-image:      -o-linear-gradient(top, #fff 0%, #e0e0e0 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e0e0e0));
+  background-image:         linear-gradient(to bottom, #fff 0%, #e0e0e0 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe0e0e0', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  background-repeat: repeat-x;
+  border-color: #dbdbdb;
+  border-color: #ccc;
+  }
+  #restau2 img {
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .075);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, .075);
+  max-width: 100%;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+       -o-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;
+   margin-left:20px;
+   margin-right:20px;
+}
+
+li{
+display:inline-block;
+margin-left : 16px;
+font-size : 20px;
+}
+ #conta{
+ float:left;
+    width: 900px;
+ }
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+  background-color:#F6F6F6;
+  border-radius:10px;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 15px;
+  color: white;
+}
+.restaur{
+	float:left;
+	width:900px;
+	height:650px;
+}
+.restauinfo{
+	display: inline-block;
+	width:385px;
+	height:330px;
+	padding-left:50px;
+}
+.restauinfo p + h4 {
+  margin-top: 28px;
+}
+.restauinfo h4{
+    font-weight:900;
+}
+
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+  .datdat{
+  padding-top:20px;
+  border-radius:15px;
+ 
+ 
+  text-align:left;
+  width:900px;
+  height:180px;}
+
+#recommand #rt {
+	float: left;
+	width: 460px;
+	height: 50px;
+	color: orange;
+	font-size: 30px;
+	font-weight:700;
+}
+
+#recommand .res {
+	float: left;
+	width: 460px;
+	height: 210px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+#recommand .pic {
+	float: left;
+	width: 200px;
+	height: 200px;
+	background-image: url("../img/jock par.jpg");
+	background-size: 200px 200px;
+}
+
+#recommand .rescontent {
+	float: left;
+	width: 230px;
+	height: 200px;
+	margin-left: 10px;
+}
+
+.rescontent .retitle {
+	float: left;
+	width: 200px;
+	height: 20px;
+	margin:10px;
+}
+.rescontent .rename {
+	float: left;
+	width: 200px;
+	height: 20px;
+	margin:10px;
+}
+.rescontent .reva {
+	float: left;
+	width: 200px;
+	height: 20px;
+	margin:10px;
+}
+.rescontent .relo {
+	float: left;
+	width: 200px;
+	height: 20px;
+	margin:10px;
+}
+.rescontent .repri {
+	float: left;
+	width: 200px;
+	height: 20px;
+	margin:10px;
+}
+#datgul{
+	float:left;
+	width:900px;
+	height:820px;
+	border-radius:10px;
+}
+#guls{
+	width:700px;
+	height:50px;
+	border:solid 1px;
+	 background-color:#f6f6f6;
+	border-radius:10px;
+}
+

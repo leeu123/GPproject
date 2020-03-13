@@ -1,0 +1,195 @@
+* {
+	margin: 0 auto;
+}
+/*  ----------------------------------------------*/
+section {
+	float: left;
+	width: 100%;
+	height: 1400px;
+}
+
+article {
+	background-image: url('../img/party.jpg');
+	float: left;
+	width: 100%;
+	height: 300px;
+	color: white;
+	font-size: 5cm;
+}
+
+#ptitle {
+	float: left;
+	width: 100%;
+	height: 60px;
+	text-align: center;
+}
+
+#pic {
+	float: left;
+	margin: 0 auto;
+	width: 100%;
+	height: 952px;
+}
+
+#section {
+	width: 1500px;
+	height: 952px;
+	border: solid 1px green;
+	border-radius: 15px;
+}
+
+.picbox {
+	float: left;
+	width: 422px;
+	height: 374px;
+	border: solid 1px green;
+	margin: 40px 35px 40px 35px;
+}
+
+.pictitle {
+	float: left;
+	width: 400px;
+	height: 60px;
+	margin: 0px 10px 0px 10px;
+	border: solid 1px green;
+}
+
+.partypic {
+	float: left;
+	width: 400px;
+	height: 300px;
+	margin: 10px 10px 0px 10px;
+	border: solid 1px green;
+}
+
+.partypic[name$="sam"] {
+	float: left;
+	width: 400px;
+	height: 300px;
+	margin: 10px 10px 0px 10px;
+	border: solid 1px green;
+	background-image: url("../img/sam par.jpg");
+	background-size: 400px 300px;
+}
+
+.partypic[name$="jock"] {
+	float: left;
+	width: 400px;
+	height: 300px;
+	margin: 10px 10px 0px 10px;
+	border: solid 1px green;
+	background-image: url("../img/jock par.jpg");
+	background-size: 400px 300px;
+}
+
+.partypic[name$="bos"] {
+	float: left;
+	width: 400px;
+	height: 300px;
+	margin: 10px 10px 0px 10px;
+	border: solid 1px green;
+	background-image: url("../img/bos par.jpg");
+	background-size: 400px 300px;
+}
+
+.partypic[name$="chi"] {
+	float: left;
+	width: 400px;
+	height: 300px;
+	margin: 10px 10px 0px 10px;
+	border: solid 1px green;
+	background-image: url("../img/chi par.jpg");
+	background-size: 400px 300px;
+}
+
+.partypic[name$="bang"] {
+	float: left;
+	width: 400px;
+	height: 300px;
+	margin: 10px 10px 0px 10px;
+	border: solid 1px green;
+	background-image: url("../img/bang par.jpg");
+	background-size: 400px 300px;
+}
+
+.partypic[name$="gob"] {
+	float: left;
+	width: 400px;
+	height: 300px;
+	margin: 10px 10px 0px 10px;
+	border: solid 1px green;
+	background-image: url("../img/gob par.jpg");
+	background-size: 400px 300px;
+}
+
+#samsin {
+	width: 400px;
+	height: 300px;
+	color: black;
+	font-size: 0.9cm;
+	font-weight: 600;
+	text-align: center;
+	visibility: hidden;
+	background-color: white;
+	opacity: 0.9;
+}
+
+#jocksin {
+	width: 400px;
+	height: 300px;
+	color: black;
+	font-size: 0.9cm;
+	font-weight: 600;
+	text-align: center;
+	visibility: hidden;
+	background-color: white;
+	opacity: 0.8;
+}
+
+#chisin {
+	width: 400px;
+	height: 300px;
+	color: black;
+	font-size: 0.9cm;
+	font-weight: 600;
+	text-align: center;
+	visibility: hidden;
+	background-color: white;
+	opacity: 0.8;
+}
+
+#bossin {
+	width: 400px;
+	height: 300px;
+	color: black;
+	font-size: 0.9cm;
+	font-weight: 600;
+	text-align: center;
+	visibility: hidden;
+	background-color: white;
+	opacity: 0.8;
+}
+
+#bangsin {
+	width: 400px;
+	height: 300px;
+	color: black;
+	font-size: 0.9cm;
+	font-weight: 600;
+	text-align: center;
+	visibility: hidden;
+	background-color: white;
+	opacity: 0.8;
+}
+
+#gobsin {
+	width: 400px;
+	height: 300px;
+	color: black;
+	font-size: 0.9cm;
+	font-weight: 600;
+	text-align: center;
+	visibility: hidden;
+	background-color: white;
+	opacity: 0.8;
+}
