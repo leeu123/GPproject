@@ -32,11 +32,6 @@
 	request.setAttribute("id", id);
 	MemberDTO mb = ps.member(request, response);
 	
-	
-	
-	
-	
-	
 	%>
 	
 	<nav style="background-color:#47C83E; margin-top: 150px; height:60px; margin-bottom: 70px;text-align:center; font-size: 1cm; color:white;">
@@ -58,7 +53,7 @@
 	<tr><th>닉네임</th><td><%=mb.getNick() %> </td></tr>
 	<tr><th>이메일</th><td> <%=mb.getEmail() %></td></tr>	
 	
-	<tr></tr>	
+	<tr><td colspan="2" style="text-align:center;"><a href="infoupdate.jsp"><button class="btn btn-success">회원정보 수정/회원 탈퇴</button></a></td></tr>	
 	</tbody>
 	
 	
