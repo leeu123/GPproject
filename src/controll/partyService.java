@@ -1202,6 +1202,146 @@ public class partyService implements partyCommandInter {
 
 	}
 	
+	@Override
+	public ArrayList<resdatDTO> resdatall(HttpServletRequest request, HttpServletResponse response) throws Exception { // 댓글 모두 정보 들고 오기
+																												
+		try {
+			partyAction model = partyAction.instance();
+			
+			ArrayList<resdatDTO> mb =  (ArrayList<resdatDTO>)model.resdatall();
+			
+			
+			if(mb.size()!=0) {
+				return mb;
+			}
+			else {
+				return null;
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+
+	}
+	
+	
+	@Override
+	public ArrayList<ReviewBean> reviewall(HttpServletRequest request, HttpServletResponse response) throws Exception { // 작성한 리뷰 정보 들고 오기
+																												
+		try {
+			partyAction model = partyAction.instance();
+			
+			ArrayList<ReviewBean> mb =  (ArrayList<ReviewBean>)model.reviewall();
+			
+			if(mb.size()!=0) {
+				return mb;
+			}
+			else {
+				return null;
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+
+	}
+	
+	@Override
+	public ArrayList<PartyDTO> partyall(HttpServletRequest request, HttpServletResponse response) throws Exception { // 신청한 파티 정보 들고 오기
+																												
+		try {
+			partyAction model = partyAction.instance();
+			
+			ArrayList<PartyDTO> mb =  (ArrayList<PartyDTO>)model.partyall();
+			
+			
+			if(mb.size()!=0) {
+				return mb;
+			}
+			else {
+				return null;
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+
+	}
+	
+	@Override
+	public ArrayList<PartyDTO> party1all(HttpServletRequest request, HttpServletResponse response) throws Exception { // 신청한 파티 정보 들고 오기
+																												
+		try {
+			partyAction model = partyAction.instance();
+			
+			ArrayList<PartyDTO> mb =  (ArrayList<PartyDTO>)model.party1all();
+			
+			
+			if(mb.size()!=0) {
+				return mb;
+			}
+			else {
+				return null;
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+
+	}
+	
+	
+	
+	@Override
+	public ArrayList<BoardBean> QnAall(HttpServletRequest request, HttpServletResponse response) throws Exception { // 작성한 Q_A 정보 들고 오기
+																												
+		try {
+			partyAction model = partyAction.instance();
+			
+			ArrayList<BoardBean> mb =  (ArrayList<BoardBean>)model.QnAall();
+			
+			
+			if(mb.size()!=0) {
+				return mb;
+			}
+			else {
+				return null;
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+
+	}
+	
+	@Override
+	public ArrayList<DTO_AD> restauall(HttpServletRequest request, HttpServletResponse response) throws Exception { // 작성한 Q_A 정보 들고 오기
+																												
+		try {
+			partyAction model = partyAction.instance();
+			
+			ArrayList<DTO_AD> mb =  (ArrayList<DTO_AD>)model.restauall();
+			
+			
+			if(mb.size()!=0) {
+				return mb;
+			}
+			else {
+				return null;
+			}
+			
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+
+	}
+	
 	
 	
 	

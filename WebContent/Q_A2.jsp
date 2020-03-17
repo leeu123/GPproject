@@ -12,11 +12,11 @@
 	margin: auto;
 	width: 500px;
 	text-align: center;
-	height: 20px;
+	height : 20px;
 }
 </style>
-<link rel="stylesheet" type="text/css" href="css/Q_Astyle.css">
-<link rel="stylesheet" type="text/css" href="css/gpstyleQ_A.css">
+<link rel="stylesheet" type="text/css" href="css/boardstyle.css">
+<link rel="stylesheet" type="text/css" href="css/gpstyle2.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
@@ -44,7 +44,7 @@
 
 </head>
 <body>
-
+  
 
 	<%@include file="header.jsp"%>
 

@@ -14,7 +14,7 @@ Statement stmt = null;
 int i = 0;
 try{
 Class.forName("com.mysql.jdbc.Driver");
-conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gpteam","root","nicu0309");
+conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gpteam","root","12345");
 if(conn ==null){
 throw new Exception("데이터베이스에 연결할 수 없습니다.<br>");
 }

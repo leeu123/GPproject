@@ -12,6 +12,7 @@ import party.ApplyDTO;
 import party.Preview;
 import resdat.resdatDTO;
 import vo.BoardBean;
+import vo.DTO_AD;
 import vo.ReviewBean;
 import vo.reservationDTO;
 import mybatis.SqlMapConfig;
@@ -33,7 +34,7 @@ public class partyAction {
 		sqlSession.commit();
 		sqlSession.close();
 	}
-	//ÁøÇàÁßÀÎ ÆÄÆ¼ Ä«Å×°í¸®º° ÆÄÆ¼Á¤º¸ ºÒ·¯¿À±â
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ Ä«ï¿½×°ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 	public List<PartyDTO> selectlistParty(String cate) {
 		List<PartyDTO> list = null;
 		SqlSession sqlSession = factory.openSession();
@@ -132,7 +133,7 @@ public class partyAction {
 			return false;
 	}
 	
-	public reservationDTO cheres(reservationDTO rsdto) { // ¿¹¾àÇÑ Á¤º¸ µé°í¿À±â
+	public reservationDTO cheres(reservationDTO rsdto) { // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		reservationDTO rsrs = null;
 		SqlSession sqlSession = factory.openSession();
 		rsrs = sqlSession.selectOne("checkres",rsdto);
@@ -142,7 +143,7 @@ public class partyAction {
 	}
 	
 	
-	public void reservation(reservationDTO rsdto) {  // ½Ä´ç ¿¹¾à Á¤º¸ ÀÔ·Â
+	public void reservation(reservationDTO rsdto) {  // ï¿½Ä´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
 		SqlSession sqlSession = factory.openSession();
 		sqlSession.insert("reservation", rsdto);
 		sqlSession.commit();
@@ -150,7 +151,7 @@ public class partyAction {
 	}
 	
 	
-	public boolean cancel(reservationDTO rsdto) {  // ½Ä´ç ¿¹¾à Á¤º¸ »èÁ¦ (Ãë¼Ò)
+	public boolean cancel(reservationDTO rsdto) {  // ï¿½Ä´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½)
 		try{SqlSession sqlSession = factory.openSession();
 		sqlSession.delete("cancel", rsdto);
 		sqlSession.commit();
@@ -163,7 +164,7 @@ public class partyAction {
 	 }
 	
 	
-	public MemberDTO member(String id) {  // È¸¿øÁ¤º¸ µé°í¿À±â id·Î
+	public MemberDTO member(String id) {  // È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½
 		SqlSession sqlSession = factory.openSession();
 		MemberDTO mb = sqlSession.selectOne("member",id);
 		sqlSession.close();
@@ -172,7 +173,7 @@ public class partyAction {
 	}
 	
 	
-	public List<ReviewBean> review(String id) {  // ¸®ºä °Ô½ÃÆÇ µé°í¿À±â id·Î
+	public List<ReviewBean> review(String id) {  // ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½
 		SqlSession sqlSession = factory.openSession();
 		List<ReviewBean> mb = sqlSession.selectList("review",id);
 		sqlSession.close();
@@ -184,7 +185,7 @@ public class partyAction {
 		}
 	}
 	
-	public List<PartyDTO> party(String id) {  // È¸¿øÁ¤º¸·Î ½ÅÃ»ÇÑ ÆÄÆ¼ Á¤º¸ µé°í¿À±â id·Î
+	public List<PartyDTO> party(String id) {  // È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½
 		SqlSession sqlSession = factory.openSession();
 		List<PartyDTO> mb = sqlSession.selectList("party",id);
 		sqlSession.close();
@@ -196,7 +197,7 @@ public class partyAction {
 		}
 	}
 	
-	public List<PartyDTO> party1(String id) {  // È¸¿øÁ¤º¸·Î ½ÅÃ»ÇÑ ÆÄÆ¼ Á¤º¸ µé°í¿À±â id·Î
+	public List<PartyDTO> party1(String id) {  // È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½
 		SqlSession sqlSession = factory.openSession();
 		List<PartyDTO> mb = sqlSession.selectList("party1",id);
 		sqlSession.close();
@@ -209,7 +210,7 @@ public class partyAction {
 	}
 	
 	
-	public List<BoardBean> QnA(String id) {  // È¸¿øÁ¤º¸·Î ½ÅÃ»ÇÑ ÆÄÆ¼ Á¤º¸ µé°í¿À±â id·Î
+	public List<BoardBean> QnA(String id) {  // È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½
 		SqlSession sqlSession = factory.openSession();
 		List<BoardBean> mb = sqlSession.selectList("QnA",id);
 		sqlSession.close();
@@ -221,7 +222,7 @@ public class partyAction {
 		}
 	}
 	
-	public List<PartyDTO> apparty(String id) {  // È¸¿øÁ¤º¸·Î ½ÅÃ»ÇÑ ÆÄÆ¼ Á¤º¸ µé°í¿À±â id·Î
+	public List<PartyDTO> apparty(String id) {  // È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½
 		SqlSession sqlSession = factory.openSession();
 		List<PartyDTO> mb = sqlSession.selectList("apparty",id);
 		sqlSession.close();
@@ -233,7 +234,7 @@ public class partyAction {
 		}
 	}
 	
-	public List<resdatDTO> resdat(String id) {  // È¸¿øÁ¤º¸·Î ½ÅÃ»ÇÑ ÆÄÆ¼ Á¤º¸ µé°í¿À±â id·Î
+	public List<resdatDTO> resdat(String id) {  // È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½
 		SqlSession sqlSession = factory.openSession();
 		List<resdatDTO> mb = sqlSession.selectList("resdat",id);
 		sqlSession.close();
@@ -244,6 +245,83 @@ public class partyAction {
 			return null;
 		}
 	}
+	
+	
+	
+	public List<resdatDTO> resdatall() {  // È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½
+		SqlSession sqlSession = factory.openSession();
+		List<resdatDTO> mb = sqlSession.selectList("resdatall");
+		sqlSession.close();
+		if(mb.size()!=0) {
+			return mb;
+		}
+		else {
+			return null;
+		}
+	}
+	
+	public List<ReviewBean> reviewall() {  // ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½
+		SqlSession sqlSession = factory.openSession();
+		List<ReviewBean> mb = sqlSession.selectList("reviewall");
+		sqlSession.close();
+		if(mb.size()!=0) {
+			return mb;
+		}
+		else {
+			return null;
+		}
+	}
+	
+	public List<PartyDTO> partyall() {  // È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½
+		SqlSession sqlSession = factory.openSession();
+		List<PartyDTO> mb = sqlSession.selectList("partyall");
+		sqlSession.close();
+		if(mb.size()!=0) {
+			return mb;
+		}
+		else {
+			return null;
+		}
+	}
+	
+	public List<PartyDTO> party1all() {  // È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½
+		SqlSession sqlSession = factory.openSession();
+		List<PartyDTO> mb = sqlSession.selectList("party1all");
+		sqlSession.close();
+		if(mb.size()!=0) {
+			return mb;
+		}
+		else {
+			return null;
+		}
+	}
+	
+	
+	public List<BoardBean> QnAall() {  // È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½
+		SqlSession sqlSession = factory.openSession();
+		List<BoardBean> mb = sqlSession.selectList("QnAall");
+		sqlSession.close();
+		if(mb.size()!=0) {
+			return mb;
+		}
+		else {
+			return null;
+		}
+	}
+	
+	
+	public List<DTO_AD> restauall() {  // È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½
+		SqlSession sqlSession = factory.openSession();
+		List<DTO_AD> mb = sqlSession.selectList("restauall");
+		sqlSession.close();
+		if(mb.size()!=0) {
+			return mb;
+		}
+		else {
+			return null;
+		}
+	}
+	
 	
 
 

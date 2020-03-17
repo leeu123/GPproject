@@ -41,7 +41,30 @@ public class BoardBean {
 	public void setQfile(String qfile) {
 		this.qfile = qfile;
 	}
-
+	public int getQref() {
+		return qref;
+	}
+	public void setQref(int qref) {
+		this.qref = qref;
+	}
+	public int getQlev() {
+		return qlev;
+	}
+	public void setQlev(int qlev) {
+		this.qlev = qlev;
+	}
+	public int getQseq() {
+		return qseq;
+	}
+	public void setQseq(int qseq) {
+		this.qseq = qseq;
+	}
+	public int getAvailable() {
+		return available;
+	}
+	public void setAvailable(int available) {
+		this.available = available;
+	}
 	public Date getDate() {
 		return date;
 	}
@@ -60,6 +83,10 @@ public class BoardBean {
 	private String qtitle;
 	private String qcontent;
 	private String qfile;
+	private int qref;
+	private int qlev;
+	private int qseq;
+	private int available;
 	private Date date;
 	private int readcount;
 	private String keyword;

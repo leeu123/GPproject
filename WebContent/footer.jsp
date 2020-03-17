@@ -20,7 +20,7 @@
 			<div id="footerinner">
 				<div id="ftleft">
 					<ul>
-						<li>개인정보처리방침</li>
+						<li><a href="aboutus.jsp">개인정보처리방침</a></li>
 						<li>|</li>
 						<li>서비스이용약관 </li>
 						<li>|</li>

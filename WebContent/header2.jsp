@@ -79,13 +79,8 @@ if(keyCode==13) searchbar.submit();
 					</div>
 					<%}else{ %>
 					<div class="dropdown">
-					
 						<div class="dropdown-button">마이페이지</div>
 						<div class="dropdown-content">
-						<% if(id.equals("leeu123")||id.equals("nicu0309")||id.equals("dlwlrma0516")||id.equals("leeu7916")) {%>
-						<a href="manage.jsp">관리자 페이지</a>
-						
-					<%} %>
 						<a href="mypage.jsp">회원 정보</a>
 							
 							<!-- 사업자 확인을 위해 business테이블에 동일한 아이디가 있으면 사업자 등록을 한거기 때문에 세션으로 등록한 아이디를 같이 보낸거 -->

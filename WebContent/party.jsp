@@ -71,8 +71,7 @@
 				</div>
 
 				<div class="picbox">
-					<a href="partycate.do?cate=<%=l%>"><div class="partypic"
-							name="wes">
+					<a href="partycate.do?cate=<%=l%>"><div class="partypic" name="wes">
 							<div id="western" align="center"></div>
 						</div>
 						<div class="pictitle">양 &nbsp;&nbsp;&nbsp; 식</div> </a>
