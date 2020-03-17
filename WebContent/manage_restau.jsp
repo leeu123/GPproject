@@ -42,8 +42,8 @@ function whenErrorP() {
 	
 	<table class="table table-striped" style=" margin-top:10px;" id="rest">
 	<thead>
-	<tr><th colspan="6" style="text-align:center;"> [등록된 식당]</th></tr>
-	<tr><th>식당번호</th><th>등록인</th><th>식당종류</th><th>지역</th><th>식당이름</th><th style="width:55%;">주소</th></tr>
+	<tr><th colspan="7" style="text-align:center;"> [등록된 식당]</th></tr>
+	<tr><th>식당번호</th><th>등록인</th><th>식당종류</th><th>지역</th><th>식당이름</th><th style="width:55%;">주소</th><th></th></tr>
 	</thead>
 	<tbody>
 	
@@ -77,9 +77,10 @@ function whenErrorP() {
 	<td><a href="restaurantDetail.bo?rnum=<%=rs.get(i).getRnum()%>"><%=rs.get(i).getType() %></a></td>
 	<td><a href="restaurantDetail.bo?rnum=<%=rs.get(i).getRnum()%>"><%=rs.get(i).getLocation() %></a></td>
 	<td><a href="restaurantDetail.bo?rnum=<%=rs.get(i).getRnum()%>"><%=rs.get(i).getStore()%></a></td>
-	<td><a href="restaurantDetail.bo?rnum=<%=rs.get(i).getRnum()%>">(<%=rs.get(i).getPostnum() %>)<%=rs.get(i).getHome() %>&nbsp;&nbsp;<%=rs.get(i).getDethome() %></a></td></tr>
+	<td><a href="restaurantDetail.bo?rnum=<%=rs.get(i).getRnum()%>">(<%=rs.get(i).getPostnum() %>)<%=rs.get(i).getHome() %>&nbsp;&nbsp;<%=rs.get(i).getDethome() %></a></td>
+	<td><input type="button" value="삭제"></td></tr>
 		<%}%>
-		<tr><td colspan="6" style="text-align:center;">
+		<tr><td colspan="7" style="text-align:center;">
 		<%if(st!=0){%>	
 		<button class="btn btn-success" onClick="pageRestau('<%=((st-1)*10)+1%>')">◀</button>
 		<%}for(int k =(st*10)+1; k<(st*10)+num; k++){%>

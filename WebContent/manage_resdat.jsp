@@ -42,8 +42,8 @@ function whenErrorP() {
 	
 	<table class="table table-striped" style=" margin-top:10px;" id="resdat">
 	<thead>
-	<tr><th colspan="4" style="text-align:center;">[댓글]</th></tr>
-	<tr><th>식당이름</th><th>작성자</th><th>음식평</th><th style="width:50%;">내용</th><th>날짜</th></tr>
+	<tr><th colspan="5" style="text-align:center;">[댓글]</th></tr>
+	<tr><th>식당이름</th><th>작성자</th><th>음식평</th><th style="width:50%;">내용</th><th>날짜</th><th></th></tr>
 	</thead>
 	<tbody>
 	
@@ -76,9 +76,10 @@ function whenErrorP() {
 	<td><a href="restaurantDetail.bo?rnum=<%=rd.get(i).getRnum()%>"><%=rd.get(i).getNick()%></a></td>
 	<td><a href="restaurantDetail.bo?rnum=<%=rd.get(i).getRnum()%>"><%for(int k = 0; k <rd.get(i).getPyung();k++){ %>★<%} %></a></td>
 	<td><a href="restaurantDetail.bo?rnum=<%=rd.get(i).getRnum()%>"><%=rd.get(i).getDcontent() %></a></td>
-	<td><a href="restaurantDetail.bo?rnum=<%=rd.get(i).getRnum()%>"><%=rd.get(i).getDate()%></a></td></tr>
+	<td><a href="restaurantDetail.bo?rnum=<%=rd.get(i).getRnum()%>"><%=rd.get(i).getDate()%></a></td>
+	<td><input type="button" value="삭제"></td></tr>
 		<%}%>
-		<tr><td colspan="6" style="text-align:center;">
+		<tr><td colspan="5" style="text-align:center;">
 		<%if(st!=0){%>	
 		<button class="btn btn-success" onClick="pageResdat('<%=((st-1)*10)+1%>')">◀</button>
 		<%}for(int k =(st*10)+1; k<(st*10)+num; k++){%>

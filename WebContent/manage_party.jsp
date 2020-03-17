@@ -42,8 +42,8 @@ function whenErrorP() {
 	
 	<table class="table table-striped" style=" margin-top:10px;" id="party">
 	<thead>
-	<tr><th colspan="4" style="text-align:center;">[모집중인 파티]</th></tr>
-	<tr><th style="width:55%;">제목</th><th>주최자</th><th>예상가격</th><th>파티날짜</th></tr>
+	<tr><th colspan="5" style="text-align:center;">[모집중인 파티]</th></tr>
+	<tr><th style="width:55%;">제목</th><th>주최자</th><th>예상가격</th><th>파티날짜</th><th></th></tr>
 	</thead>
 	<tbody>
      <% 	
@@ -73,9 +73,10 @@ function whenErrorP() {
 	<tr><td><a href="partyinfo.do?pnum=<%=pt.get(i).getPnum()%>"><%=pt.get(i).getTitle() %></a></td>
 	<td><a href="partyinfo.do?pnum=<%=pt.get(i).getPnum()%>"><%=pt.get(i).getNick()%></a></td>
 	<td><a href="partyinfo.do?pnum=<%=pt.get(i).getPnum()%>"><%=pt.get(i).getPreprice() %></a></td>
-	<td><a href="partyinfo.do?pnum=<%=pt.get(i).getPnum()%>"><%=pt.get(i).getPdate() %></a></td></tr>	
+	<td><a href="partyinfo.do?pnum=<%=pt.get(i).getPnum()%>"><%=pt.get(i).getPdate() %></a></td>
+	<td><input type="button" value="삭제"></td></tr>	
 		<%}%>
-		<tr><td colspan="6" style="text-align:center;">
+		<tr><td colspan="5" style="text-align:center;">
 		<%if(st!=0){%>	
 		<button class="btn btn-success" onClick="pageParty('<%=((st-1)*10)+1%>')">◀</button>
 		<%}for(int k =(st*10)+1; k<(st*10)+num; k++){%>

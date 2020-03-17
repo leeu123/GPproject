@@ -121,7 +121,7 @@
 					</tbody>
 				</table>
 				<% String administrator = "administrator";
-				if (id.equals(administrator) ) {%>
+				if(id.equals("leeu123")||id.equals("nicu0309")||id.equals("dlwlrma0516")||id.equals("leeu7916")||id.equals(administrator)){%>
 				  <a class="btn btn-success" style="color: white"
 			href="boardReplyForm.bo?board_num=<%=article.getQnum() %>&page=<%=nowPage%>">
 			답변 </a> 

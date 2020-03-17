@@ -127,7 +127,7 @@
 		<table class="table table-striped" style="margin-top: 10px;" id="rest">
 			<thead>
 				<tr>
-					<th colspan="5" style="text-align: center;">[댓글]</th>
+					<th colspan="6" style="text-align: center;">[댓글]</th>
 				</tr>
 				<tr>
 					<th>식당이름</th>
@@ -135,6 +135,7 @@
 					<th>음식평</th>
 					<th style="width: 50%;">내용</th>
 					<th>날짜</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -160,6 +161,7 @@
 						href="restaurantDetail.bo?rnum=<%=rd.get(i).getRnum()%>"><%=rd.get(i).getDcontent()%></a></td>
 					<td><a
 						href="restaurantDetail.bo?rnum=<%=rd.get(i).getRnum()%>"><%=rd.get(i).getDate()%></a></td>
+						<td><input type="button" value="삭제"></td>
 				</tr>
 				<%
 					}
@@ -188,7 +190,7 @@
 		<table class="table table-striped" style="margin-top: 10px;" id="rest">
 		<thead>
 				<tr>
-					<th colspan="5" style="text-align: center;">[댓글]</th>
+					<th colspan="6" style="text-align: center;">[댓글]</th>
 				</tr>
 				<tr>
 					<th>식당이름</th>
@@ -196,11 +198,12 @@
 					<th>음식평</th>
 					<th style="width: 50%;">내용</th>
 					<th>날짜</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td colspan="5" style="color: red;">작성된 댓글이 없습니다.</td>
+					<td colspan="6" style="color: red;">작성된 댓글이 없습니다.</td>
 				</tr>
 			</tbody>
 		</table>
@@ -230,13 +233,14 @@
 		<table class="table table-striped" style="margin-top: 10px;" id="rest">
 			<thead>
 				<tr>
-					<th colspan="4" style="text-align: center;">[모집중인 파티]</th>
+					<th colspan="5" style="text-align: center;">[모집중인 파티]</th>
 				</tr>
 				<tr>
 					<th style="width: 55%;">제목</th>
 					<th>주최자</th>
 					<th>예상가격</th>
 					<th>파티날짜</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -249,11 +253,12 @@
 					<td><a href="partyinfo.do?pnum=<%=pt.get(i).getPnum()%>"><%=pt.get(i).getNick()%></a></td>
 					<td><a href="partyinfo.do?pnum=<%=pt.get(i).getPnum()%>"><%=pt.get(i).getPreprice()%></a></td>
 					<td><a href="partyinfo.do?pnum=<%=pt.get(i).getPnum()%>"><%=pt.get(i).getPdate()%></a></td>
+					<td><input type="button" value="삭제"></td>
 				</tr>
 				<%
 					}
 				%><tr>
-					<td colspan="4" style="text-align: center;">
+					<td colspan="5" style="text-align: center;">
 						<%
 							for (int k = 0; k < num; k++) {
 						%>
@@ -277,18 +282,19 @@
 		<table class="table table-striped" style="margin-top: 10px;" id="rest">
 		<thead>
 				<tr>
-					<th colspan="4" style="text-align: center;">[모집중인 파티]</th>
+					<th colspan="5" style="text-align: center;">[모집중인 파티]</th>
 				</tr>
 				<tr>
 					<th style="width: 55%;">제목</th>
 					<th>주최자</th>
 					<th>예상가격</th>
 					<th>파티날짜</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td colspan="4" style="color: red;">현재 모집중인 파티가 없습니다.</td>
+					<td colspan="5" style="color: red;">현재 모집중인 파티가 없습니다.</td>
 				</tr>
 			</tbody>
 		</table>
@@ -317,13 +323,14 @@
 		<table class="table table-striped" style="margin-top: 10px;" id="rest">
 			<thead>
 				<tr>
-					<th colspan="4" style="text-align: center;">[완료된 파티]</th>
+					<th colspan="5" style="text-align: center;">[완료된 파티]</th>
 				</tr>
 				<tr>
 					<th style="width: 55%;">제목</th>
 					<th>주최자</th>
 					<th>예상가격</th>
 					<th>파티날짜</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -336,11 +343,12 @@
 					<td><a href="partyinfore.do?pnum=<%=ptt.get(i).getPnum()%>"><%=ptt.get(i).getNick()%></a></td>
 					<td><a href="partyinfore.do?pnum=<%=ptt.get(i).getPnum()%>"><%=ptt.get(i).getPreprice()%></a></td>
 					<td><a href="partyinfore.do?pnum=<%=ptt.get(i).getPnum()%>"><%=ptt.get(i).getPdate()%></a></td>
+					<td><input type="button" value="삭제"></td>
 				</tr>
 				<%
 					}
 				%><tr>
-					<td colspan="4" style="text-align: center;">
+					<td colspan="5" style="text-align: center;">
 						<%
 							for (int k = 0; k < num; k++) {
 						%>
@@ -364,18 +372,19 @@
 		<table class="table table-striped" style="margin-top: 10px;" id="rest">
 		<thead>
 				<tr>
-					<th colspan="4" style="text-align: center;">[완료된 파티]</th>
+					<th colspan="5" style="text-align: center;">[완료된 파티]</th>
 				</tr>
 				<tr>
 					<th style="width: 55%;">제목</th>
 					<th>주최자</th>
 					<th>예상가격</th>
 					<th>파티날짜</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td colspan="4" style="color: red;">모집했던 파티가 없습니다.</td>
+					<td colspan="5" style="color: red;">모집했던 파티가 없습니다.</td>
 				</tr>
 			</tbody>
 		</table>
@@ -402,13 +411,14 @@
 		<table class="table table-striped" style="margin-top: 10px;" id="rest">
 			<thead>
 				<tr>
-					<th colspan="4" style="text-align: center;">[ 리뷰 ]</th>
+					<th colspan="5" style="text-align: center;">[ 리뷰 ]</th>
 				</tr>
 				<tr>
 					<th>작성자</th>
 					<th style="width: 65%;">제목</th>
 					<th>지역</th>
 					<th>날짜</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -426,12 +436,13 @@
 						href="reviewDetail.bo?board_num=<%=rb.get(i).getRnum()%>&page=1"><%=rb.get(i).getLocation()%></a></td>
 					<td><a
 						href="reviewDetail.bo?board_num=<%=rb.get(i).getRnum()%>&page=1"><%=rb.get(i).getDate()%></a></td>
+						<td><input type="button" value="삭제"></td>
 				</tr>
 
 				<%
 					}
 				%><tr>
-					<td colspan="4" style="text-align: center;">
+					<td colspan="5" style="text-align: center;">
 						<%
 							for (int k = 0; k < num; k++) {
 						%>
@@ -456,18 +467,19 @@
 		<table class="table table-striped" style="margin-top: 10px;" id="rest">
 		<thead>
 				<tr>
-					<th colspan="4" style="text-align: center;">[ 리뷰 ]</th>
+					<th colspan="5" style="text-align: center;">[ 리뷰 ]</th>
 				</tr>
 				<tr>
 					<th>작성자</th>
 					<th style="width: 65%;">제목</th>
 					<th>지역</th>
 					<th>날짜</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td colspan="4" style="color: red;">아직 작성한 리뷰가 없습니다.</td>
+					<td colspan="5" style="color: red;">아직 작성한 리뷰가 없습니다.</td>
 				</tr>
 			</tbody>
 		</table>
@@ -495,12 +507,13 @@
 		<table class="table table-striped" style="margin-top: 10px;" id="rest">
 			<thead>
 				<tr>
-					<th colspan="3" style="text-align: center;">[ Q_A ]</th>
+					<th colspan="4" style="text-align: center;">[ Q_A ]</th>
 				</tr>
 				<tr>
 					<th>작성자</th>
 					<th style="width: 65%;">제목</th>
 					<th>날짜</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -516,12 +529,13 @@
 						href="boardDetail.bo?board_num=<%=bb.get(i).getQnum()%>&page=1&id=<%=bb.get(i).getId()%>"><%=bb.get(i).getQtitle()%></a></td>
 					<td><a
 						href="boardDetail.bo?board_num=<%=bb.get(i).getQnum()%>&page=1&id=<%=bb.get(i).getId()%>"><%=bb.get(i).getDate()%></a></td>
+						<td><input type="button" value="삭제"></td>
 				</tr>
 
 				<%
 					}
 				%><tr>
-					<td colspan="3" style="text-align: center;">
+					<td colspan="4" style="text-align: center;">
 						<%
 							for (int k = 0; k < num; k++) {
 						%>
@@ -545,17 +559,18 @@
 		<table class="table table-striped" style="margin-top: 10px;" id="rest">
 		<thead>
 				<tr>
-					<th colspan="3" style="text-align: center;">[ Q_A ]</th>
+					<th colspan="4" style="text-align: center;">[ Q_A ]</th>
 				</tr>
 				<tr>
 					<th>작성자</th>
 					<th style="width: 65%;">제목</th>
 					<th>날짜</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td colspan="3" style="color: red;">아직 작성한 Q_A가 없습니다.</td>
+					<td colspan="4" style="color: red;">아직 작성한 Q_A가 없습니다.</td>
 				</tr>
 			</tbody>
 		</table>
@@ -584,7 +599,7 @@
 		<table class="table table-striped" style="margin-top: 10px;" id="rest">
 			<thead>
 				<tr>
-					<th colspan="6" style="text-align: center;">[등록된 식당]</th>
+					<th colspan="7" style="text-align: center;">[등록된 식당]</th>
 				</tr>
 				<tr>
 					<th>식당번호</th>
@@ -593,6 +608,7 @@
 					<th>지역</th>
 					<th>식당이름</th>
 					<th style="width: 55%;">주소</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -614,13 +630,14 @@
 						href="restaurantDetail.bo?rnum=<%=rs.get(i).getRnum()%>"><%=rs.get(i).getStore()%></a></td>
 					<td><a
 						href="restaurantDetail.bo?rnum=<%=rs.get(i).getRnum()%>">(<%=rs.get(i).getPostnum() %>)<%=rs.get(i).getHome() %>&nbsp;&nbsp;<%=rs.get(i).getDethome() %></a></td>
+						<td><input type="button" value="삭제"></td>
 				</tr>
 
 
 
 
 				<%}%><tr>
-					<td colspan="6" style="text-align: center;" >
+					<td colspan="7" style="text-align: center;" >
 						<%for(int k =0; k<num; k++){%>
 						<button class="btn btn-success" onClick="pageRestau('<%=k+1%>')"><%=k+1 %></button>
 						<% }if(count>=1){%>
@@ -635,7 +652,7 @@
 		<table class="table table-striped" style="margin-top: 10px;" id="rest">
 		<thead>
 				<tr>
-					<th colspan="6" style="text-align: center;">[등록된 식당]</th>
+					<th colspan="7" style="text-align: center;">[등록된 식당]</th>
 				</tr>
 				<tr>
 					<th>식당번호</th>
@@ -644,11 +661,12 @@
 					<th>지역</th>
 					<th>식당이름</th>
 					<th style="width: 55%;">주소</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td colspan="5" style="color: red;">아직 등록된 식당이 없습니다.</td>
+					<td colspan="7" style="color: red;">아직 등록된 식당이 없습니다.</td>
 				</tr>
 			</tbody>
 		</table>

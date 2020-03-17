@@ -82,7 +82,7 @@ if(keyCode==13) searchbar.submit();
 					
 						<div class="dropdown-button">마이페이지</div>
 						<div class="dropdown-content">
-						<% if(id.equals("leeu123")||id.equals("nicu0309")||id.equals("dlwlrma0516")||id.equals("leeu7916")) {%>
+						<% if(id.equals("leeu123")||id.equals("nicu0309")||id.equals("dlwlrma0516")||id.equals("leeu7916")||id.equals("administrator")) {%>
 						<a href="manage.jsp">관리자 페이지</a>
 						
 					<%} %>
