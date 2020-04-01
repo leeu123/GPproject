@@ -8,7 +8,7 @@ import review_dao.ReviewDAO;
 import vo.ReviewBean;
 
 public class License_service {
-//»ç¾÷ÀÚ Å×ÀÌºí¿¡ Àü´Ş¹ŞÀº ¾ÆÀÌµğ°¡ ÀÖ´ÂÁö È®ÀÎÇÏ±âÀ§ÇØ License_DAOÆäÀÌÁö·Î º¸³»ÁÖ´Â ÆäÀÌÁö
+	//ì‚¬ì—…ì í…Œì´ë¸”ì— ì „ë‹¬ë°›ì€ ì•„ì´ë””ê°€ ìˆëŠ”ì§€ í™•ì¸í•˜ê¸°ìœ„í•´ License_DAOí˜ì´ì§€ë¡œ ë³´ë‚´ì£¼ëŠ” í˜ì´ì§€
 	public boolean isArticleWriter(String id) throws Exception {
 		boolean isArticleWriter = false;
 		Connection con = getConnection();

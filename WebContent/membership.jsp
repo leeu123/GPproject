@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"%> <!--memebership_insert 페이지 지우기  -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<!--memebership_insert 페이지 지우기  -->
 <html>
 <head>
 <meta charset="UTF-8">
@@ -7,25 +8,29 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/membershipStyle.css">
 <script type="text/javascript" src="scripts/membership_script.js"></script>
+<link
+	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+	rel="stylesheet" type="text/css" />
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 <script>
 	function sample6_execDaumPostcode() {
 		new daum.Postcode(
 				{
 					oncomplete : function(data) {
 						// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
 						// 각 주소의 노출 규칙에 따라 주소를 조합한다.
 						// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
 						var addr = ''; // 주소 변수
 						var extraAddr = ''; // 참고항목 변수
-
 						//사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
 						if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
 							addr = data.roadAddress;
 						} else { // 사용자가 지번 주소를 선택했을 경우(J)
 							addr = data.jibunAddress;
 						}
-
 						// 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
 						if (data.userSelectedType === 'R') {
 							// 법정동명이 있을 경우 추가한다. (법정리는 제외)
@@ -46,11 +51,9 @@
 							}
 							// 조합된 참고항목을 해당 필드에 넣는다.
 							document.getElementById("sample6_extraAddress").value = extraAddr;
-
 						} else {
 							document.getElementById("sample6_extraAddress").value = '';
 						}
-
 						// 우편번호와 주소 정보를 해당 필드에 넣는다.
 						document.getElementById('sample6_postcode').value = data.zonecode;
 						document.getElementById("sample6_address").value = addr;
@@ -62,117 +65,136 @@
 	}
 </script>
 <script>
+	function select_chkemail() {
+		var reg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+		var emailfind = naver.email.value
+		if (emailfind == "") {
+			alert("이메일을 입력하세요");
+			naver.email.focus()
+
+		} else if (false === reg.test(emailfind)) {
+			alert("이메일 형식에 맞게 작성해주세요")
+			naver.email.focus()
+			naver.email.select()
+		} else {
+
+			window.open("emailcheck.jsp?email=" + naver.email.value, "hjhj",
+					"width=300,height=100");
+
+		}
+
+	}
 	function select_method() {
 		var reg = /^(?=.*?[a-z])(?=.*?[0-9]).{5,20}$/;
 		var idfind = naver.id.value
 		if (idfind == "") {
 			alert("아이디를 입력하세요");
 			naver.id.focus()
-
 		} else if (false === reg.test(idfind)) {
 			alert("5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용")
 			naver.id.focus()
 			naver.id.select()
 		} else {
-
 			window.open("idcheck.jsp?id=" + naver.id.value, "hjhj",
-					"width=300,height=100");
+					"width=300,height=100"); // 새창을 띄워주는 코드 사이즈 지정과 함께
 
 		}
-
+	}
+	function nick_check() {
+		var reg = /^(?=.*?[가-힣]).{2,20}$/;
+		var nickfind = naver.nick.value
+		if (nickfind == "") {
+			alert("닉네임을 입력하세요");
+			naver.nick.focus()
+		} else if (false === reg.test(nickfind)) {
+			alert("2~20자의 한글 사용");
+			naver.nick.focus()
+			naver.nick.select()
+		} else {
+			window.open("nickcheck.jsp?nick=" + naver.nick.value, "hnhn",
+					"width=300,height=100"); // 새창을 띄워주는 코드 사이즈 지정과 함께
+		}
 	}
 	function pwequals() {
-
 		var pw = naver.pw.value
 		var pw2 = naver.pw2.value
-
 		if (pw == pw2) {
 			alert("비밀번호가 일치합니다.");
 			naver.pw2.focus()
-
+			naver.pwche.value = 1
 		} else {
-
 			alert("비밀번호가 일치하지 않습니다.");
 			naver.pw2.focus()
+			naver.pwche.value = 0
 		}
-
 	}
-
 	function total_check() {
 		var reg = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-        var num= /^[0-9]+$/;
-        var kor= /^[가-힣]+$/;
+		var num = /^[0-9]+$/;
+		var kor = /^[가-힣]+$/;
 		var email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
 		var password = naver.pw.value
-		var nicname = naver.nick.value
+		var nickname = naver.nick.value
 		var nameimport = naver.name.value
 		var hidden = naver.hidden.value
+		var nicche = naver.nicche.value
+		var pwche = naver.pwche.value
 		var cell = naver.cell.value
-	    var old = naver.age.value
 		var pw2 = naver.pw2.value
-	    var pwa = naver.pwa.value
-	    var em = naver.email.value
-	    var post = naver.postnum.value
+		var pwa = naver.pwa.value
+		var em = naver.email.value
+		var post = naver.postnum.value
 		var sex = naver.sex.value
-			
-           
-            
-			if (hidden !=1){
-			alert("중복을 체크해주세요.")
+		if (hidden != 1) {
+			alert("아이디중복을 체크해주세요.")
 			naver.id.focus()
 			naver.id.select()
-			} else if (nicname == "") {
-
+		} else if (nicche != 1) {
+			alert("닉네임중복을 체크해주세요.")
+			naver.nick.focus()
+			naver.nick.select()
+		} else if (pwche != 1) {
+			alert("패스워드 확인을 해주세요.")
+			naver.pw2.focus()
+			naver.pw2.select()
+		} else if (nickname == "") {
 			alert("닉네임을 입력해주세요.")
 			naver.nick.focus()
-	     	}else if (nameimport == "") {
-
+		} else if (nameimport == "") {
 			alert("이름을 입력해주세요.")
 			naver.name.focus()
-	    	} else if (false === reg.test(password)) {
+		} else if (false === reg.test(password)) {
 			alert('비밀번호는 8자 이상이어야 하며, 숫자/대문자/소문자/특수문자를 모두 포함해야 합니다.');
 			naver.pw.focus()
 			naver.pw.select()
-	     	} else if (password !== pw2)
-            {   
-	         alert("비밀번호 일치여부를 확인하세요.");
-	          naver.pw2.focus()
-            } else if (pwa == "") {
+		} else if (password !== pw2) {
+			alert("비밀번호 일치여부를 확인하세요.");
+			naver.pw2.focus()
+		} else if (pwa == "") {
 			alert("힌트정답을 입력해주세요.")
 			naver.pwa.focus()
-	    	}else if (false === email.test(em)) {
+		} else if (false === email.test(em)) {
 			alert('이메일 형식에 맞게 작성해 주세요');
 			naver.email.focus()
 			naver.email.select()
-	     	} else if (post == "") {
-
+		} else if (post == "") {
 			alert("주소를 입력해주세요.")
 			naver.postnum.focus()
-	     	}else if (sex == '성별') {
-
+		} else if (sex == '성별') {
 			alert(" 성별을 선택하세요.")
 			naver.sex.focus()
-	     	}
-			else if (false === num.test(old)) {
-			alert('숫자만 입력하세요');
-			naver.age.focus()
-			naver.age.select()
-		      }	
-			else if (false === num.test(cell)) {
+		} else if (false === num.test(cell)) {
 			alert('숫자만 입력하세요');
 			naver.cell.focus()
 			naver.cell.select()
-		      }
-			else if (false === kor.test(nameimport)){
+		} else if (false === kor.test(nameimport)) {
 			alert("한글만 입력하세요")
 			naver.name.focus()
 			naver.name.select()
-			}
-
-		   else {
+		} else {
 			document.naver.submit();
-		   }
-        	}
+		}
+	}
 </script>
 
 
@@ -185,8 +207,8 @@
 
 				<FORM name="naver" action="membershipAction.jsp" method=post>
 					<tr>
-						<td align="center"><a href="gpindex.jsp"><img
-								src="img\\gplogo1.png" style="width: 400px; height: 90px"></a>
+						<td align="center"><a href="index.jsp"><img
+								src="img\\gplogo1.png" style="width: 400px; height: 120px"></a>
 						</td>
 					</tr>
 
@@ -197,10 +219,11 @@
 					<tr>
 						<td>
 							<div>
-								<input type="text" maxlength="15" class="f" name="id" id ="id"
+								<input type="text" maxlength="15" class="f" name="id" id="id"
 									placeholder="5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용"
 									onfocus="this.placeholder = ''"
-									onblur="this.placeholder = '5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용'">
+									onblur="this.placeholder = '5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용'"
+									onChange="naver.hidden.value='0'">
 								<button onClick="select_method()" type="button"
 									class="btn btn-success" style="margin-left: 39px;">확인</button>
 							</div>
@@ -214,9 +237,12 @@
 					<tr>
 						<td>
 							<div>
-								<input type="text" class="f" name="nick" placeholder="닉네임을 입력하세요"
-									onfocus="this.placeholder = ''"
-									onblur="this.placeholder = '닉네임을 입력하세요'">
+								<input type="text" class="f" name="nick"
+									placeholder="닉네임을 입력하세요" onfocus="this.placeholder = ''"
+									onblur="this.placeholder = '닉네임을 입력하세요'"
+									onChange="naver.nicche.value='0'">
+								<button onClick="nick_check()" type="button"
+									class="btn btn-success" style="margin-left: 39px;">확인</button>
 							</div>
 						</td>
 					</tr>
@@ -231,7 +257,8 @@
 							<div>
 								<input type="password" class="f" name="pw"
 									placeholder="비밀번호를 입력하세요" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = '비밀번호를 입력하세요'">
+									onblur="this.placeholder = '비밀번호를 입력하세요'"
+									onChange="naver.pwche.value='0'">
 							</div>
 						</td>
 					</tr>
@@ -244,7 +271,8 @@
 					<tr>
 						<td>
 							<div>
-								<input type="password" class="f" maxlength="15" name="pw2">
+								<input type="password" class="f" maxlength="15" name="pw2"
+									onChange="naver.pwche.value='0'">
 								<button onClick="pwequals()" type="button"
 									class="btn btn-success" style="margin-left: 39px;">확인</button>
 							</div>
@@ -295,12 +323,31 @@
 
 						<td class="l">생년월일</td>
 					</tr>
+					
 					<tr>
 						<td>
 							<div>
-								<input type="text" name="age" class="f" placeholder="주민번호 앞자리 6자리를 입력하세요"
-									onfocus="this.placeholder = ''"
-									onblur="this.placeholder = '주민번호 앞자리 6자리를 입력하세요'">
+								<ul	style="display:flex; list-style-type: none; padding: 0px; margin-bottom:0px;">
+									<li><select name="year" class="f" style="width:100px;">
+											<%for(int k = 1920; k <2021;k++){ %>
+											<option value="<%=k%>"><%=k%></option>
+											<%} %>
+									</select></li>
+									
+									<li style="margin-right:5px;">년</li>
+									<li><select name="month" class="f" style="width:100px;">
+											<%for(int k = 0; k <12;k++){ %>
+											<option value="<%=k+1%>"><%=k+1%></option>
+											<%} %>
+									</select></li>
+									<li style="margin-right:5px;">월</li>
+									<li ><select name="day"  class="f" style="width:100px;">
+											<%for(int k = 0; k <31;k++){ %>
+											<option value="<%=k+1%>"><%=k+1%></option>
+											<%} %>
+									</select></li>
+									<li >일</li>
+								</ul>
 							</div>
 
 						</td>
@@ -315,8 +362,8 @@
 							<div>
 								<select class="o" name="sex">
 									<option>성별</option>
-									<option>남자</option>
-									<option>여자</option>
+									<option value="남자">남자</option>
+									<option value="여자">여자</option>
 
 								</select>
 							</div>
@@ -327,91 +374,96 @@
 
 
 					<tr>
-						<td class "l"> 본인확인 이메일 </td>
-   </tr>
-					<tr>
-						<td>
-							<div>
-								<input type="text" name="email" class="f"
-									placeholder="이메일을 입력하세요" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = '이메일을 입력하세요'">
-							</div>
+						<td class"l"> 본인확인 이메일	</td>
+					</tr>
+				<tr>
+					<td>
+						<div>
+							<input type="text" name="email" class="f"
+								placeholder="이메일을 입력하세요" onfocus="this.placeholder = ''"
+								onblur="this.placeholder = '이메일을 입력하세요'">
+							<button onClick="select_chkemail()" type="button"
+								class="btn btn-success" style="margin-left: 39px;">확인</button>
+						</div>
 
-						</td>
-					</tr>
-					<tr>
-						<td class="l">우편번호</td>
-					</tr>
-					<tr>
-						<td>
-							<div>
-								<input type="text" id="sample6_postcode" placeholder="우편번호"
-									name="postnum" style="border: none"><input
-									type="button" onclick="sample6_execDaumPostcode()"
-									value="우편번호 찾기" class="btn btn-success"
-									style="margin-left: 69px;">
-							</div>
-						</td>
-					</tr>
-
-
-
-					<tr>
-						<td class="l">주소</td>
-					</tr>
-					<tr>
-						<td>
-							<div>
-								<input type="text" id="sample6_address" placeholder="주소"
-									name="home" class="f">
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td class="l">상세주소</td>
-					</tr>
-					<tr>
-						<td>
-							<div>
-								<input type="text" id="sample6_detailAddress" placeholder="상세주소"
-									name="dethome" class="f">
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<div>
-								<input type="text" id="sample6_extraAddress" placeholder="참고항목">
-								<script
-									src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-							</div>
-						</td>
-					</tr>
+					</td>
+				</tr>
+				<tr>
+					<td class="l">우편번호</td>
+				</tr>
+				<tr>
+					<td>
+						<div>
+							<input type="text" id="sample6_postcode" placeholder="우편번호"
+								name="postnum" style="border: none" readonly><input
+								type="button" onclick="sample6_execDaumPostcode()"
+								value="우편번호 찾기" class="btn btn-success"
+								style="margin-left: 69px;">
+						</div>
+					</td>
+				</tr>
 
 
 
-					<tr>
-						<td>휴대전화</td>
-					</tr>
+				<tr>
+					<td class="l">주소</td>
+				</tr>
+				<tr>
+					<td>
+						<div>
+							<input type="text" id="sample6_address" placeholder="주소"
+								name="home" class="f" readonly>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="l">상세주소</td>
+				</tr>
+				<tr>
+					<td>
+						<div>
+							<input type="text" id="sample6_detailAddress" placeholder="상세주소"
+								name="dethome" class="f">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div>
+							<input type="text" id="sample6_extraAddress" placeholder="참고항목"
+								readonly>
+							<script
+								src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+						</div>
+					</td>
+				</tr>
 
-					<tr>
-						<td>
-							<div>
-								<input type="text" name="cell" class="f"
-									placeholder="-없이 입력해주세요" onfocus="this.placeholder = ''"
-									onblur="this.placeholder = '-없이 입력해주세요'">
-							</div>
-						</td>
-					</tr>
-					<tr>
-					
-						<td>
-							<button onClick="total_check()" type="button"
-								class="btn btn-success"
-								style="width: 400px; height: 40px; margin-left: 9px;">가입하기</button>
-						</td>
-						<td><input type="hidden" name="hidden" value=""></td>
-					</tr>
+
+
+				<tr>
+					<td>휴대전화</td>
+				</tr>
+
+				<tr>
+					<td>
+						<div>
+							<input type="text" name="cell" maxlength="11" class="f" placeholder="-없이 입력해주세요"
+								onfocus="this.placeholder = ''"
+								onblur="this.placeholder = '-없이 입력해주세요'">
+						</div>
+					</td>
+				</tr>
+				<tr>
+
+					<td>
+						<button onClick="total_check()" type="button"
+							class="btn btn-success"
+							style="width: 400px; height: 40px; margin-left: 9px;">가입하기</button>
+					</td>
+					<td><input type="hidden" name="hidden" value=""></td>
+					<td><input type="hidden" name="nicche" value=""></td>
+					<td><input type="hidden" name="pwche" value=""></td>
+				</tr>
 
 				</FORM>
 			</table>
@@ -426,6 +478,3 @@
 	</div>
 </body>
 </html>
-
-
-

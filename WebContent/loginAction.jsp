@@ -23,14 +23,14 @@
      
     
      MemberDAO userDAO = new MemberDAO(); 
-     int result = userDAO.login(dto.getId(),dto.getPw());
+     int result = userDAO.login(dto.getId(),dto.getPw()); // 로그인 성공 파악
      
  
-         if(result ==1){
+         if(result ==1){ // 성공이면 1
         	 String nick = userDAO.selectNick(dto.getId());
         	if(nick != null){
-        	 session.setAttribute("id",dto.getId());
-        	 session.setAttribute("nick",nick);
+        	 session.setAttribute("id",dto.getId()); // session에 id 저장
+        	 session.setAttribute("nick",nick); // session에 nick 저장
         	 PrintWriter script = response.getWriter();
         	 script.println("<script>");
         	script.println("location.href = 'gpindex.jsp'");

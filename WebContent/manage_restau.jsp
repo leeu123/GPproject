@@ -15,6 +15,16 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
+function deleterestau(s){ // 식당 없애기
+	
+	var re = confirm("식당을 삭제하시겠습니까??");
+	
+	
+	if(re){
+		location.href="deleterestau.do?rnum="+s;		
+	}
+	
+}
 //=================페이징 처리 식당
 function pageRestau(s) {	
 	$.ajax({
@@ -78,7 +88,7 @@ function whenErrorP() {
 	<td><a href="restaurantDetail.bo?rnum=<%=rs.get(i).getRnum()%>"><%=rs.get(i).getLocation() %></a></td>
 	<td><a href="restaurantDetail.bo?rnum=<%=rs.get(i).getRnum()%>"><%=rs.get(i).getStore()%></a></td>
 	<td><a href="restaurantDetail.bo?rnum=<%=rs.get(i).getRnum()%>">(<%=rs.get(i).getPostnum() %>)<%=rs.get(i).getHome() %>&nbsp;&nbsp;<%=rs.get(i).getDethome() %></a></td>
-	<td><input type="button" value="삭제"></td></tr>
+	<td><a href="javascript:deleterestau('<%=rs.get(i).getRnum() %>')"><input type="button" value="삭제"></a></td></tr>
 		<%}%>
 		<tr><td colspan="7" style="text-align:center;">
 		<%if(st!=0){%>	

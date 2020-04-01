@@ -33,9 +33,9 @@ public class BoardDAO {
 		this.con = con;
 	}
 
-	//±ÛÀÇ °³¼ö ±¸ÇÏ±â.
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½.
 	public int selectListCount() {
-         System.out.println("DAO¿¡ selectlistcount ÀÛµ¿ ");
+         System.out.println("DAOï¿½ï¿½ selectlistcount ì‘ë™ ");
 		int listCount= 0;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -59,15 +59,15 @@ public class BoardDAO {
 
 	}
 
-	//±Û ¸ñ·Ï º¸±â.	
+	//ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.	
 	public ArrayList<BoardBean> selectArticleList(int page,int limit){
-         System.out.println("DAO selctArticleList ÀÛµ¿");
+         System.out.println("DAO selctArticleList ì‘ë™");
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String board_list_sql="select * from qnaboard order by qnum desc limit ?,10";
 		ArrayList<BoardBean> articleList = new ArrayList<BoardBean>();
 		BoardBean board = null;
-		int startrow=(page-1)*10; //ÀĞ±â ½ÃÀÛÇÒ row ¹øÈ£..	
+		int startrow=(page-1)*10; //ì½ê¸° ì‹œì‘í•  row ë²ˆí˜¸..
 	
 		try{
 			pstmt = con.prepareStatement(board_list_sql);
@@ -181,9 +181,9 @@ public ArrayList<BoardBean> selectIdList(BoardBean reviewbean){
 
 }
 
-	//±Û ³»¿ë º¸±â.
+//ê¸€ ë‚´ìš© ë³´ê¸°.
 	public BoardBean selectArticle(int board_num){
-        System.out.println("selectArticleÀÛµ¿");
+        System.out.println("selectArticleï¿½Ûµï¿½");
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		BoardBean boardBean = null;
@@ -196,7 +196,7 @@ public ArrayList<BoardBean> selectIdList(BoardBean reviewbean){
 			System.out.println(pstmt);
 
 			if(rs.next()){
-				System.out.println("ÀÛµ¿");
+				System.out.println("ì‘ë™");
 				boardBean = new BoardBean();
 				boardBean.setQnum(rs.getInt("qnum"));
 				boardBean.setNick(rs.getString("nick"));
@@ -217,7 +217,7 @@ public ArrayList<BoardBean> selectIdList(BoardBean reviewbean){
 	}
 	
 	public AnswerDTO selectAnswer(int board_num){
-        System.out.println("selectArticleÀÛµ¿");
+        System.out.println("selectArticleï¿½Ûµï¿½");
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		AnswerDTO answer = null;
@@ -230,7 +230,7 @@ public ArrayList<BoardBean> selectIdList(BoardBean reviewbean){
 			System.out.println(pstmt);
 
 			if(rs.next()){
-				System.out.println("ÀÛµ¿");
+				System.out.println("ì‘ë™");
 				answer = new AnswerDTO();
 				answer.setQnum(rs.getInt("qnum"));
 				answer.setNick(rs.getString("nick"));
@@ -249,7 +249,7 @@ public ArrayList<BoardBean> selectIdList(BoardBean reviewbean){
 	}
 
 	public int exist(int board_num){
-        System.out.println("selectArticleÀÛµ¿");
+        System.out.println("selectArticleï¿½Ûµï¿½");
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int i = 0;
@@ -276,7 +276,7 @@ public ArrayList<BoardBean> selectIdList(BoardBean reviewbean){
 		return i;
 
 	}
-	//±Û µî·Ï.
+	//ê¸€ ë“±ë¡.
 	public int insertArticle(BoardBean article){		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -287,7 +287,7 @@ public ArrayList<BoardBean> selectIdList(BoardBean reviewbean){
 		try{
 			pstmt=con.prepareStatement("select max(qnum) from qnaboard");
 			rs = pstmt.executeQuery();
-			System.out.println("insertArticle ¾È¿¡ ÀÖ´Â try¹® ½ÇÇà");
+			System.out.println("insertArticle ì•ˆì— ìˆëŠ” tryë¬¸ ì‹¤í–‰");
 
 			if(rs.next())
 				num =rs.getInt(1)+1;
@@ -318,7 +318,7 @@ public ArrayList<BoardBean> selectIdList(BoardBean reviewbean){
 
 	}
 
-	//±Û ´äº¯.
+	//ê¸€ ë‹µë³€.
 	public int insertReplyArticle(AnswerDTO article){
      
 		PreparedStatement pstmt = null;
@@ -344,7 +344,7 @@ public ArrayList<BoardBean> selectIdList(BoardBean reviewbean){
 		return insertCount;
 	}
 
-	//±Û ¼öÁ¤.
+	//ê¸€ ìˆ˜ì •.
 	public int updateArticle(BoardBean article){
       System.out.println(article.getQtitle());
 		int updateCount = 0;
@@ -367,7 +367,7 @@ public ArrayList<BoardBean> selectIdList(BoardBean reviewbean){
 
 	}
 
-	//±Û »èÁ¦.
+	//ê¸€ ì‚­ì œ.
 	public int deleteArticle(int board_num){
 
 		PreparedStatement pstmt = null;
@@ -387,9 +387,9 @@ public ArrayList<BoardBean> selectIdList(BoardBean reviewbean){
 
 	}
 
-	//Á¶È¸¼ö ¾÷µ¥ÀÌÆ®.
+	//ì¡°íšŒìˆ˜ ì—…ë°ì´íŠ¸.
 	public int updateReadCount(int board_num){
-           System.out.println("updateReadCountÀÛµ¿");
+           System.out.println("updateReadCountï¿½Ûµï¿½");
            
 		PreparedStatement pstmt = null;
 		int updateCount = 0;
@@ -410,7 +410,7 @@ public ArrayList<BoardBean> selectIdList(BoardBean reviewbean){
 
 	}
 
-	//±Û¾´ÀÌÀÎÁö È®ÀÎ.
+	//ê¸€ì“´ì´ì¸ì§€ í™•ì¸.
 	public boolean isArticleBoardWriter(int board_num,String pass){
         System.out.println(board_num+pass);
 		PreparedStatement pstmt = null;

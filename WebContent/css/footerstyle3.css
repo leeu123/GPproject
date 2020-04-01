@@ -1,0 +1,43 @@
+/*-------------���� ��Ÿ��------------------*/
+#footer {
+	width: 100%;
+	
+	padding: 33px 0 0 0;
+	background: #1d9c59;
+	font-size: 11px;
+	display: block;
+	margin-top:0px;
+}
+
+#footerinner {
+	width: 940px;
+	margin: 0 0;
+	line-height: 14px;
+	overflow: hidden;
+	display: block;
+}
+
+#ftleft {
+	float: left;
+	display: block;
+}
+
+#ftleft ul {
+	padding-left: 0px;
+}
+
+#ftleft li {
+	display: inline;
+	font-size: 9pt;
+	font-family: 'Noto Sans KR', sans-serif;
+	color: white;
+	margin-left : 16px;
+}
+
+#footer p {
+	margin: 23px;
+	color: white;
+	line-height: 16px;
+	woer-spacing: -1px;
+	display: block;
+}

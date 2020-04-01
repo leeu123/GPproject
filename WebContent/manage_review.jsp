@@ -15,6 +15,16 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
+function deletereview(s){ // 리뷰 없애기
+	
+	var re = confirm("리뷰를 삭제하시겠습니까??");
+	
+	
+	if(re){
+		location.href="deletereview.do?rnum="+s;		
+	}
+	
+}
 //=================페이징 처리 식당
 function pageReview(s) {	
 	$.ajax({
@@ -76,7 +86,7 @@ function whenErrorP() {
 	<td><a href="reviewDetail.bo?board_num=<%=rb.get(i).getRnum()%>&page=1"><%=rb.get(i).getRtitle()%></a></td>
 	<td><a href="reviewDetail.bo?board_num=<%=rb.get(i).getRnum()%>&page=1"><%=rb.get(i).getLocation() %></a></td>
 	<td><a href="reviewDetail.bo?board_num=<%=rb.get(i).getRnum()%>&page=1"><%=rb.get(i).getDate() %></a></td>
-	<td><input type="button" value="삭제"></td>
+	<td><a href="javascript:deletereview('<%=rb.get(i).getRnum() %>')"><input type="button" value="삭제"></a></td>
 	</tr>	
 		<%}%>
 		<tr><td colspan="5" style="text-align:center;">

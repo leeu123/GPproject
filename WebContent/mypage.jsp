@@ -33,11 +33,11 @@
 	MemberDTO mb = ps.member(request, response);
 	
 	%>
+	<article style="background-image: url('img/aboutus.jpg'); background-size:100% 100%; margin-top:85px; margin-bottom:20px; width:100%; height:250px;">
+	<font style="color:white; font-size:1.3cm; margin-left:30px; font-family: 'Noto Sans KR', sans-serif;font-weight:900;">&nbsp;MY &nbsp;&nbsp;PAGE&nbsp;</font><br>
+	<font style="color:white; font-size:0.8cm; margin-left:30px; font-family: 'Noto Sans KR', sans-serif; font-weight:900;">&nbsp;맛있는 경험&nbsp;</font>
 	
-	<nav style="background-color:#47C83E; margin-top: 150px; height:60px; margin-bottom: 70px;text-align:center; font-size: 1cm; color:white;">
-	* &nbsp;My &nbsp;&nbsp;Page&nbsp; *
-	
-	</nav>
+	</article>
 	<section style="min-height: 649px;width: 100%; display:flex;">
 	<div style="width:10%;">	
 	
@@ -51,7 +51,8 @@
 	<tr><th>아이디</th><td><%=mb.getId()%> </td></tr>
 	<tr><th>이름</th><td> <%=mb.getName() %></td></tr>
 	<tr><th>닉네임</th><td><%=mb.getNick() %> </td></tr>
-	<tr><th>이메일</th><td> <%=mb.getEmail() %></td></tr>	
+	<tr><th>이메일</th><td> <%=mb.getEmail() %></td></tr>
+	<tr><th>사업자 번호</th><td></td></tr>	
 	
 	<tr><td colspan="2" style="text-align:center;"><a href="infoupdate.jsp"><button class="btn btn-success">회원정보 수정/회원 탈퇴</button></a></td></tr>	
 	</tbody>
@@ -101,10 +102,10 @@
      
      if(appt!=null){
     	 for(int i = 0; i <appt.size();i++){%>
-	<tr><td><a href="partyinfore.do?pnum=<%=appt.get(i).getPnum()%>"><%=appt.get(i).getTitle() %></a></td>
-	<td><a href="partyinfore.do?pnum=<%=appt.get(i).getPnum()%>"><%=appt.get(i).getNick()%></a></td>
-	<td><a href="partyinfore.do?pnum=<%=appt.get(i).getPnum()%>"><%=appt.get(i).getPreprice() %></a></td>
-	<td><a href="partyinfore.do?pnum=<%=appt.get(i).getPnum()%>"><%=appt.get(i).getPdate() %></a></td></tr>	
+	<tr><td><a href="partyinfo.do?pnum=<%=appt.get(i).getPnum()%>"><%=appt.get(i).getTitle() %></a></td>
+	<td><a href="partyinfo.do?pnum=<%=appt.get(i).getPnum()%>"><%=appt.get(i).getNick()%></a></td>
+	<td><a href="partyinfo.do?pnum=<%=appt.get(i).getPnum()%>"><%=appt.get(i).getPreprice() %></a></td>
+	<td><a href="partyinfo.do?pnum=<%=appt.get(i).getPnum()%>"><%=appt.get(i).getPdate() %></a></td></tr>	
 		<%}}else{
 			%><tr><td colspan="4" style="color:red;">신청한 파티가 없습니다.</td></tr>
 		<%} %>

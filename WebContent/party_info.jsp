@@ -7,12 +7,10 @@
 <%
 	ArrayList<PartyDTO> sic = (ArrayList<PartyDTO>) request.getAttribute("sic");
 %>
-<%
+<%	
 	
-	
-	
-	partyService ps = new partyService();
-	request.setAttribute("pnum", sic.get(0).getPnum());
+	partyService ps = new partyService();  
+	request.setAttribute("pnum", sic.get(0).getPnum()); // 파티번호에 가져오기
 	int Apply_count  = ps.seleApplycount(request, response);
 	boolean Applyable = ps.Applyable(request, response);
 	
@@ -39,25 +37,32 @@
 <script type="text/javascript" src="scripts/party.js"></script>
 <script>
 	function party_apply() {
-		var idid1 = papply.id1.value;
+		var id = papply.id.value;
 		var ac = parseInt(papply.ac.value);
 		var pno = parseInt(papply.pno.value);
 		var aa = papply.aa.value;
+		var pid = papply.pid.value;
 		
-		if (idid1 == "null") {
+		
+		if (id == "id") {
 			alert("로그인이 필요합니다.");
-			location.href = "loginpage.jsp";
+			location.href = "loginpage";
+		}
+		else if(id==pid){
+			alert("주최자는 파티를 신청할 수 없습니다.");
 		}
 		else if(aa=="false"){
+			
 			alert("파티신청기간이 아닙니다.");
 		}
 		else if(ac==pno){
+			
 			alert("파티 정원이 모두 찼습니다.");			
 		}
 		else {
-			window.open("applycheck.jsp?pnum="+papply.pnum.value+"&id=" + idid1 + "&rname="+papply.rname.value + "&pdate="+papply.pdate.value + "&ptime="+papply.ptime.value + "&addno="+papply.addno.value + "&addr1="+papply.addr1.value + 
+			window.open("applycheck?pnum="+papply.pnum.value+"&id=" + id + "&rname="+papply.rname.value + "&pdate="+papply.pdate.value + "&ptime="+papply.ptime.value + "&addno="+papply.addno.value + "&addr1="+papply.addr1.value + 
 					"&addr2="+papply.addr2.value + "&addr="+papply.addr.value + "&ptalk="+papply.ptalk.value, "hjhj",
-			"width=650,height=620");  // 새창을 띄워주는 코드 사이즈 지정과 함께
+			"width=650,height=520");  // 새창을 띄워주는 코드 사이즈 지정과 함께
 			
 			
 		}
@@ -67,14 +72,17 @@
 <body>
 	<%@include file="header.jsp"%>
 
-	<div style="width: 1950px; height: 86px;"></div>
+	<div style="width: 100%; height: 86px;"></div>
 	<article></article>
 	<form action="party_apply.jsp" name="papply">
-	<input type="hidden" id="aa" name="aa" value="<%=Applyable%>">
-	<input type="hidden" id="ac" name="ac" value="<%=Apply_count%>"> 
-	<input type="hidden" id="pno" name="pno" value="<%=sic.get(0).getPno()%>"> 
-	<input type="hidden" id="pnum" name="pnum" value="<%=sic.get(0).getPnum()%>"> 
-		<input type="hidden" id="id1" name="id1" value="<%=id%>"> 
+	<input type="hidden" id="aa" name="aa" value="<%=Applyable%>">   <!--  파티 신청 가능기간인지 확인하기 위함 -->
+	<input type="hidden" id="ac" name="ac" value="<%=Apply_count%>">   <!--  현재 파티 신청한 인원  -->
+	<input type="hidden" id="pno" name="pno" value="<%=sic.get(0).getPno()%>">   <!--  파티 정원 확인 -->
+	
+	<input type="hidden" id="pnum" name="pnum" value="<%=sic.get(0).getPnum()%>">   
+		<input type="hidden" id="id" name="id" value="<%=id%>"> 
+		
+		<input type="hidden" id="pid" name="pid" value="<%=sic.get(0).getId()%>">
 		<input	type="hidden" id="rname" name="rname"value="<%=sic.get(0).getRname()%>"> 
 		<input type="hidden" id="pdate" name="pdate" value="<%=sic.get(0).getPdate()%>"> 
 		<input	type="hidden" id="ptime" name="ptime" value="<%=sic.get(0).getPtime()%>"> 
@@ -202,7 +210,7 @@
 									<font
 										style="font-size: 0.5cm; width: 100%; height: 20px; font-weight: 900;">주최자
 										: <%=sic.get(0).getNick()%></font> <br>
-									<p style="font-size: 0.35cm; margin-top: 15px;">
+									<p style="font-size: 0.35cm; margin-top: 15px; white-space:pre-line;">
 										<%=sic.get(0).getPtalk()%>
 									</p>
 								</div>

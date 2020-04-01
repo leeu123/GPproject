@@ -12,7 +12,7 @@ public class BoardReplyProAction implements Action {
 	
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) 
 	 throws Exception{
-	         System.out.println("¥‰∫Ø¥ﬁ∏Æ 1π¯¬∞");
+	         System.out.println("ÎãµÎ≥ÄÎã¨Î¶¨ 1Î≤àÏß∏");
 		 	ActionForward forward = null;
 		    String nowPage = request.getParameter("page");
 		 	AnswerDTO article = new AnswerDTO();  		
@@ -24,7 +24,7 @@ public class BoardReplyProAction implements Action {
 		 	boolean isReplySuccess = boardReplyProService.replyArticle(article);
 		 	
 	   		if(isReplySuccess){
-	   			System.out.println("isReplySuccess ¿€µø");
+	   			System.out.println("isReplySuccess ÏûëÎèô");
 	   			forward = new ActionForward();
 	   			forward.setRedirect(true);
 	   			forward.setPath("boardList.bo?page=" + nowPage);
@@ -33,7 +33,7 @@ public class BoardReplyProAction implements Action {
 	   			response.setContentType("text/html;charset=UTF-8");
 	   			PrintWriter out = response.getWriter();
 	   			out.println("<script>");
-	   			out.println("alert('¥‰¿ÂΩ«∆–')");
+	   			out.println("alert('ÎãµÏû•Ïã§Ìå®')");
 	   			out.println("history.back()");
 	   			out.println("</script>");
 	   		}

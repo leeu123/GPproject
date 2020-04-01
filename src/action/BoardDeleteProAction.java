@@ -21,7 +21,7 @@ public class BoardDeleteProAction implements Action {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out=response.getWriter();
 			out.println("<script>");
-			out.println("alert('»èÁ¦ÇÒ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù');");
+			out.println("alert('ì‚­ì œí•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤.');");
 			out.println("history.back();");
 			out.println("</script>");
 			out.close();
@@ -35,7 +35,7 @@ public class BoardDeleteProAction implements Action {
 				response.setContentType("text/html;charset=UTF-8");
 				PrintWriter out=response.getWriter();
 				out.println("<script>");
-				out.println("alert('»èÁ¦½ÇÆĞ');");
+				out.println("alert('ì‚­ì œì‹¤íŒ¨');");
 				out.println("history.back();");
 				out.println("</script>");
 				out.close();

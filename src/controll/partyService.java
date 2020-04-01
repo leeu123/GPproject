@@ -64,8 +64,8 @@ public class partyService implements partyCommandInter {
 			PartyDTO.setPdate(multi.getParameter("pdate"));
 			PartyDTO.setPtime(multi.getParameter("hour")+"시"+multi.getParameter("minu")+"분");
 			
-			PartyDTO.setSins(LocalDate.of(Integer.parseInt("20"+multi.getParameter("pdate").substring(0, 2)), Integer.parseInt(multi.getParameter("pdate").substring(2, 4)), Integer.parseInt(multi.getParameter("pdate").substring(4, 6))).minusDays(11).toString());
-			PartyDTO.setSinf(LocalDate.of(Integer.parseInt("20"+multi.getParameter("pdate").substring(0, 2)), Integer.parseInt(multi.getParameter("pdate").substring(2, 4)), Integer.parseInt(multi.getParameter("pdate").substring(4, 6))).minusDays(1).toString());
+			PartyDTO.setSins(LocalDate.of(Integer.parseInt(multi.getParameter("pdate").substring(0, 4)), Integer.parseInt(multi.getParameter("pdate").substring(5, 7)), Integer.parseInt(multi.getParameter("pdate").substring(8, 10))).minusDays(11).toString());
+			PartyDTO.setSinf(LocalDate.of(Integer.parseInt(multi.getParameter("pdate").substring(0, 4)), Integer.parseInt(multi.getParameter("pdate").substring(5, 7)), Integer.parseInt(multi.getParameter("pdate").substring(8, 10))).minusDays(1).toString());
 			//입력받은 파티 날짜에서 -11과 -1을 한 후 파티신청 시작 날짜와 종료 날짜를 입력
 		     System.out.println();
 			
@@ -664,6 +664,27 @@ public class partyService implements partyCommandInter {
 		}
 
 	}
+	
+	@Override
+	public String idrest(HttpServletRequest request, HttpServletResponse response) throws Exception { // 예약가능한지
+																													// 확인
+		try {
+			int rnum = (int) request.getAttribute("rnum");
+
+			partyAction model = partyAction.instance();
+			String idrest = model.idrest(rnum);
+
+			if (idrest != null) {
+				return idrest;
+			}
+			return null;
+
+		} catch (Exception e) {
+			System.out.println(e);
+			return null;
+		}
+
+	}
 
 	@Override
 	public boolean rescancel(HttpServletRequest request, HttpServletResponse response) throws Exception { // 예약취손
@@ -692,9 +713,117 @@ public class partyService implements partyCommandInter {
 
 	}
 	
+	
+	@Override
+	public boolean deleteresdat(HttpServletRequest request, HttpServletResponse response) throws Exception { // 마이페이지 댓글 삭제
+		try {
+			System.out.println("댓글 삭제까지 도착");
+			int dnum =  Integer.parseInt(request.getParameter("dnum"));
+            System.out.println(dnum);
+
+			partyAction model = partyAction.instance();
+			boolean s = model.deleteresdat(dnum);
+			 if(s) {
+					return true;
+		             } 
+		             return false;
+
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
+		}
+
+	}
+	
+	@Override
+	public boolean deleteqna(HttpServletRequest request, HttpServletResponse response) throws Exception { // 마이페이지 QnA 삭젠
+		try {
+			System.out.println("qna 삭제까지 도착");
+			int qnum =  Integer.parseInt(request.getParameter("qnum"));
+            System.out.println(qnum);
+
+			partyAction model = partyAction.instance();
+			boolean s = model.deleteqna(qnum);
+
+			 if(s) {
+					return true;
+		             } 
+		             return false;
+
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
+		}
+
+	}
+	
+	@Override
+	public boolean deleteparty(HttpServletRequest request, HttpServletResponse response) throws Exception { // 마이페이지 party 삭젠
+		try {
+			System.out.println("party 삭제까지 도착");
+			int pnum =  Integer.parseInt(request.getParameter("pnum"));
+            System.out.println(pnum);
+
+			partyAction model = partyAction.instance();
+			boolean s = model.deleteparty(pnum);
+
+			 if(s) {
+					return true;
+		             } 
+		             return false;
+
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
+		}
+
+	}
+	
+	@Override
+	public boolean deletereview(HttpServletRequest request, HttpServletResponse response) throws Exception { // 마이페이지 review 삭젠
+		try {
+			System.out.println("review 삭제까지 도착");
+			int rnum =  Integer.parseInt(request.getParameter("rnum"));
+            System.out.println(rnum);
+
+			partyAction model = partyAction.instance();
+			boolean s = model.deletereview(rnum);
+             if(s) {
+			return true;
+             } 
+             return false;
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
+		}
+
+	}
+	
+	@Override
+	public boolean deleterestau(HttpServletRequest request, HttpServletResponse response) throws Exception { // 마이페이지 restau 삭젠
+		try {
+			System.out.println("restau 삭제까지 도착");
+			int rnum =  Integer.parseInt(request.getParameter("rnum"));
+            System.out.println(rnum);
+
+			partyAction model = partyAction.instance();
+			boolean s = model.deleterestau(rnum);
+
+			 if(s) {
+					return true;
+		             } 
+		             return false;
+
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
+		}
+
+	}
+	
 	@Override
 	public String searchbar(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("searchbar시작");
+		
 		request.setCharacterEncoding("UTF-8");
         String keyword = request.getParameter("keyword_searchbar");
         System.out.println(keyword);
@@ -713,18 +842,23 @@ public class partyService implements partyCommandInter {
 		if(request.getParameter("page")==null){
 			page=1;
 		}
+		int startrow=(page-1)*10;
+		System.out.println("startrow="+startrow);
+		dtoad.setStartpage(startrow);
 		Action model = Action.instance();
+		
+		int listCount=(int)model.searchbarCount(dtoad);
 		ArrayList<DTO_AD> list = (ArrayList<DTO_AD>) model.searchbar(dtoad);
-		int listCount=list.size();
+		
 		System.out.println(listCount);
-       
-		int maxPage=(int)((double)listCount/limit+0.95); //0.95�� ���ؼ� �ø� ó��.
-   		//���� �������� ������ ���� ������ ��(1, 11, 21 ��...)
+		
+		//총 페이지 수.
+   		int maxPage=(int)((double)listCount/limit+0.95); //0.95를 더해서 올림 처리.
+   		//현재 페이지에 보여줄 시작 페이지 수(1, 11, 21 등...)
    		int startPage = (((int) ((double)page / 10 + 0.9)) - 1) * 10 + 1;
-   		//���� �������� ������ ������ ������ ��.(10, 20, 30 ��...)
+   		//현재 페이지에 보여줄 마지막 페이지 수.(10, 20, 30 등...)
    	        int endPage = startPage+10-1;
-
-   	        
+       
    		if (endPage> maxPage) endPage= maxPage;
 
    		PageInfo pageInfo = new PageInfo();
@@ -739,9 +873,10 @@ public class partyService implements partyCommandInter {
 		
 	    if(list.size()!=0) {
 		request.setAttribute("articleList", list);
+		request.setAttribute("keyword", keyword);
 		System.out.println("bb" + list.size());
 		System.out.println("searchbar끝");
-		return "searchpage.jsp";
+		return "searchpagebar.jsp";
 		}
 	    else {
 			return "nosearch.jsp";
@@ -1201,7 +1336,6 @@ public class partyService implements partyCommandInter {
 		}
 
 	}
-	
 	@Override
 	public ArrayList<resdatDTO> resdatall(HttpServletRequest request, HttpServletResponse response) throws Exception { // 댓글 모두 정보 들고 오기
 																												
@@ -1341,7 +1475,62 @@ public class partyService implements partyCommandInter {
 		}
 
 	}
-	
+
+	@Override
+	public String searchbar2(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+        String keyword =(String) session.getAttribute("keyword");    
+        System.out.println(keyword);
+       DTO_AD dtoad = new DTO_AD();
+       dtoad.setKeyword(keyword);
+        int page=1;
+		int limit=10;
+		
+		if(request.getParameter("page")!=null){
+			page=Integer.parseInt(request.getParameter("page"));
+		}
+		if(request.getParameter("page")==null){
+			page=1;
+		}
+		Action model = Action.instance();
+		int startrow=(page-1)*10;
+		System.out.println("startrow="+startrow);
+		dtoad.setStartpage(startrow);
+		
+		int listCount=(int)model.searchbarCount(dtoad);
+		
+		ArrayList<DTO_AD> list = (ArrayList<DTO_AD>) model.searchbar(dtoad);
+		
+		//총 페이지 수.
+   		int maxPage=(int)((double)listCount/limit+0.95); //0.95를 더해서 올림 처리.
+   		//현재 페이지에 보여줄 시작 페이지 수(1, 11, 21 등...)
+   		int startPage = (((int) ((double)page / 10 + 0.9)) - 1) * 10 + 1;
+   		//현재 페이지에 보여줄 마지막 페이지 수.(10, 20, 30 등...)
+   	        int endPage = startPage+10-1;
+       
+   	        
+   		if (endPage> maxPage) endPage= maxPage;
+
+   		PageInfo pageInfo = new PageInfo();
+   		pageInfo.setEndPage(endPage);
+   		pageInfo.setListCount(listCount);
+		pageInfo.setMaxPage(maxPage);
+		pageInfo.setPage(page);
+		pageInfo.setStartPage(startPage);	
+		request.setAttribute("pageInfo", pageInfo);
+		
+		
+	    if(list.size()!=0) {
+		request.setAttribute("articleList", list);
+		request.setAttribute("keyword",keyword);
+		return "searchpagebar2.jsp";
+		}
+	    else {
+			return "nosearch.jsp";
+		}
+	}
 	
 	
 	

@@ -1,15 +1,14 @@
 package model; //占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏟스뤄옙 占쏙옙占쏙옙
 
-import java.util.HashMap;
+
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import vo.DTO_AD;
-import vo.ReviewBean;
 import mybatis.SqlMapConfig;
-import resdat.resdatDTO;
+
 
 public class Action {
 	
@@ -35,5 +34,15 @@ public List<DTO_AD> searchbar(DTO_AD dtoad){
 	sqlSession.close();
 	return list;
 }
+
+public int searchbarCount(DTO_AD dtoad){
+	int list = 0;
+	SqlSession sqlSession = factory.openSession();
+	list = sqlSession.selectOne("searchbarCount",dtoad);
+	System.out.println(list);
+	sqlSession.close();
+	return list;
+}
+
 
 }

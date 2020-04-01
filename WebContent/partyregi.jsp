@@ -49,6 +49,13 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="_scripts/login.js"></script>
 <script type="text/javascript" src="scripts/partyregi.js"></script>
+<link
+	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+	rel="stylesheet" type="text/css" />
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script
@@ -128,6 +135,54 @@
 			}
 		}).open();
 	}
+	
+	
+	$(function() {
+		//모든 datepicker에 대한 공통 옵션 설정
+		$.datepicker
+				.setDefaults({
+					dateFormat : 'yy-mm-dd' //Input Display Format 변경
+					,
+					showOtherMonths : true //빈 공간에 현재월의 앞뒤월의 날짜를 표시
+					,
+					showMonthAfterYear : true //년도 먼저 나오고, 뒤에 월 표시
+					,
+					changeYear : true //콤보박스에서 년 선택 가능
+					,
+					changeMonth : true //콤보박스에서 월 선택 가능                
+					,
+					showOn : "both" //button:버튼을 표시하고,버튼을 눌러야만 달력 표시 ^ both:버튼을 표시하고,버튼을 누르거나 input을 클릭하면 달력 표시  
+					,
+					buttonImage : "http://jqueryui.com/resources/demos/datepicker/images/calendar.gif" //버튼 이미지 경로
+					,
+					buttonImageOnly : true //기본 버튼의 회색 부분을 없애고, 이미지만 보이게 함
+					,
+					buttonText : "선택" //버튼에 마우스 갖다 댔을 때 표시되는 텍스트                
+					,
+					yearSuffix : "년" //달력의 년도 부분 뒤에 붙는 텍스트
+					,
+					monthNamesShort : [ '1', '2', '3', '4', '5', '6', '7', '8',
+							'9', '10', '11', '12' ] //달력의 월 부분 텍스트
+					,
+					monthNames : [ '1월', '2월', '3월', '4월', '5월', '6월', '7월',
+							'8월', '9월', '10월', '11월', '12월' ] //달력의 월 부분 Tooltip 텍스트
+					,
+					dayNamesMin : [ '일', '월', '화', '수', '목', '금', '토' ] //달력의 요일 부분 텍스트
+					,
+					dayNames : [ '일요일', '월요일', '화요일', '수요일', '목요일', '금요일',
+							'토요일' ] //달력의 요일 부분 Tooltip 텍스트
+					,
+					minDate : "+1D" //최소 선택일자(-1D:하루전, -1M:한달전, -1Y:일년전)
+					,
+					maxDate : "+2M" //최대 선택일자(+1D:하루후, -1M:한달후, -1Y:일년후)                    
+				});
+
+		//input을 datepicker로 선언
+		$("#datepicker").datepicker();
+
+		//To의 초기값을 내일로 설정
+		$('#datepicker').datepicker('setDate', '+1D'); //(-1D:하루전, -1M:한달전, -1Y:일년전), (+1D:하루후, -1M:한달후, -1Y:일년후)
+	});
 </script>
 
 </head>
@@ -242,7 +297,7 @@
 						<td>
 							<div>
 								<input type="text" id="addpost" placeholder="우편번호"
-									name="addno" style="border: none"> <input
+									name="addno" style="border: none" readonly> <input
 									type="button" onclick="findaddress()" value="우편번호 찾기"
 									class="btn btn-success" style="margin-left: 50px;">
 							</div>
@@ -258,7 +313,7 @@
 						<td>
 							<div>
 								<input type="text" id="address" placeholder="주소" name="addr"
-									class="f">
+									class="f" readonly>
 							</div>
 						</td>
 					</tr>
@@ -277,7 +332,7 @@
 						<td>
 							<div>
 								<input type="text" id="extraaddress" name="addr2"
-									placeholder="참고항목">
+									placeholder="참고항목" readonly>
 							</div>
 						</td>
 					</tr>
@@ -302,10 +357,11 @@
 					<tr>
 						<td>
 							<div>
-								<input type="text" name="pdate" class="f"
+							<input type="text" id="datepicker" name="pdate" style="line-height: 0; width:350px; height:30px;">
+								<!--  <input type="text" name="pdate" class="f"
 									placeholder="파티일자를 입력해주세요. ex)200106"
 									onfocus="this.placeholder = ''"
-									onblur="this.placeholder = '파티일자를 입력해주세요. ex)200106'">
+									onblur="this.placeholder = '파티일자를 입력해주세요. ex)200106'">-->
 							</div>
 
 						</td>
@@ -316,8 +372,8 @@
 					</tr>
 					<tr>
 						<td>
-							<div><ul style="display:inline; list-style-type:none; padding:0px;">
-								<li><select name="hour" class="f" style="width:100px;">
+							<div><ul style="display:flex; list-style-type:none; padding:0px; margin:0;">
+								<li><select name="hour" class="f" style="width:100px; margin:0;">
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -380,9 +436,13 @@
 					<tr>
 						<td>
 							<div>
-								<input type="text" name="preprice" class="f"
-									placeholder="인당 예상 금액을 입력하여주세요." onfocus="this.placeholder = ''"
-									onblur="this.placeholder = '인당 예상 금액을 입력하여주세요.'">
+							<select class="f" name="preprice">
+										<option>메뉴 가격대 선택해 주세요</option>
+										<option>1만원이하</option>
+										<option>1만원대</option>
+										<option>2만원대</option>
+										<option>3만원대</option>
+									</select>
 							</div>
 						</td>
 					</tr>

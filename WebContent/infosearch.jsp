@@ -51,9 +51,10 @@ function pw_find()
 
 var email = pwsearch.email.value
 var id = pwsearch.id.value
-if (email ==""&&id =="")
+var pwa = pwsearch.pwa.value
+if (email ==""&&id ==""&&pwa=="")
 {   
-	alert("email과id를 입력하세요");
+	alert("모든 항목을 입력하세요");
 	
 
 }else if (email =="")
@@ -64,6 +65,10 @@ if (email ==""&&id =="")
 }else if (id ==""){
 	alert("아이디를 입력하세요");
 	pwsearch.id.focus()
+}
+else if (pwa ==""){
+	alert("답을 입력하세요");
+	pwsearch.pwa.focus()
 }
 
 else{
@@ -81,6 +86,10 @@ else{
 </head>
 <body>
 	<%@include file = "header.jsp"%>
+	<% String finded_id = "";
+	if(request.getParameter("finded_id")!=null){
+	finded_id = request.getParameter("finded_id");
+	} %>
 <section style = "height : 960px;">
 <div id="container">
 
@@ -97,11 +106,27 @@ else{
 <form id="pwsearch" name = "pwsearch"action = "pwfind.jsp" method = post>
 <div class="form-group">
     <label for="ID">아이디</label>
-    <input type="id" class="form-control" id="id"name = "id" placeholder="아이디를 입력하세요">
+    <input type="id" class="form-control" id="id"name = "id" value="<%=finded_id %>" placeholder="아이디를 입력하세요">
   </div>
   <div class="form-group">
     <label for="email">이메일 주소</label>
     <input type="email" class="form-control" id="email" name = "email" placeholder="이메일을 입력하세요">
+  </div>
+  <div class="form-group">
+    <label for="hint">비밀번호 찾기 질문</label>
+    <select class="form-control" id="pwhint"name = "pwhint">
+									<option>본인의 보물1호</option>
+									<option>가장 기억에 남는 장소</option>
+									<option>본인의 별명</option>
+									<option>부모님의 성함은</option>
+									<option>태어난 곳</option>
+								</select>
+  </div>
+  <div class="form-group">
+    <label for="hint">비밀번호 찾기 답</label>
+    <input type="text" name="pwa" class="form-control" id="pwa"
+									placeholder="힌트 정답을 입력하세요" onfocus="this.placeholder = ''"
+									onblur="this.placeholder = '힌트 정답을 입력하세요'">
   </div>
   <button type = "button" class="btn btn-default" onClick = "pw_find()">비밀번호찾기</button>
 

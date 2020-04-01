@@ -51,10 +51,14 @@ function reservation() {
 	var id = this.id.value;
 	var rnum = this.rnum1.value;
 	var cheres = this.cheres.value;
+	var idrest = this.idrest.value;
 	
 	if (id == "id") {
 		alert("로그인이 필요합니다.");
 		location.href = "loginpage.jsp";
+	}
+	else if(id==idrest){
+		alert("식당 주인은 신청하지 못합니다.")
 	}
 	else if(cheres != "null"){
 		alert("이미 예약하신 식당입니다.")
@@ -167,6 +171,7 @@ function rescancel(){
 		request.setAttribute("rnum", rnum1);
 		request.setAttribute("id",id);
 		partyService ps = new partyService();  // 예약한지 확인하는 호출
+		String idrest = ps.idrest(request, response);
 		reservationDTO s =ps.checkReser(request, response); // 예약한지 확인하는 호출
 		
 	%>
@@ -214,7 +219,7 @@ function rescancel(){
 			<form name="restaurant">
 			<input type="hidden" id="cheres" name="cheres" value="<%=s%>"> <!-- false 면 이미 예약한 식당, true 면 예약가능한 식당 -->
 			    
-			    
+			    <input type="hidden" id="idrest" name="idrest" value="<%=idrest%>">
 				<input type="hidden" id="rnum1" name="rnum1" value="<%=rnum1%>">
 				<input type="hidden" id="dethome" name="dethome" value="<%=article.getDethome()%>"> 
 				<input type="hidden" id="postnum" name="postnum" value="<%=article.getPostnum()%>">
@@ -349,7 +354,7 @@ function rescancel(){
 
 					</div>
 					<%
-						if ((String) session.getAttribute("id") != "id") {
+						if (id!="id") {
 					%>
 					<div class="datdat" style="margin: 0 220px;">
 						<div style="text-align: center;">

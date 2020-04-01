@@ -8,9 +8,9 @@ import vo.ActionForward;
 import action.Action;
 
 public class License_action implements Action {
-//¾ÆÀÌµğ¸¦ Àü´Ş¹Ş¾Æ¼­ License_service.java ÆäÀÌÁö·Î º¸³»¼­ ¾ÆÀÌµğ°¡ µğºñ¿¡ µî·ÏÀÌ µÇ¾îÀÖÀ¸ ½Ä´çµî·Ï ÆäÀÌÁö·Î ÀÌµ¿ÇÏ°í ¾Æ´Ï¸é »ç¾÷ÀÚµî·ÏÀÌ ¾ÈµÇ ÀÖ´Ù°í ¾ËÁ®´« ÆäÀÌÁö
+	//ì•„ì´ë””ë¥¼ ì „ë‹¬ë°›ì•„ì„œ License_service.java í˜ì´ì§€ë¡œ ë³´ë‚´ì„œ ì•„ì´ë””ê°€ ë””ë¹„ì— ë“±ë¡ì´ ë˜ì–´ìˆìœ¼ ì‹ë‹¹ë“±ë¡ í˜ì´ì§€ë¡œ ì´ë™í•˜ê³  ì•„ë‹ˆë©´ ì‚¬ì—…ìë“±ë¡ì´ ì•ˆë˜ ìˆë‹¤ê³  ì•Œì ¸ëˆˆ í˜ì´ì§€
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        System.out.println("2¹ø"+request.getParameter("id"));
+        System.out.println("2ï¿½ï¿½"+request.getParameter("id"));
 		ActionForward forward = null;
 		boolean isModifySuccess = false;
 		License_service License_service = new License_service();
@@ -20,7 +20,7 @@ public class License_action implements Action {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('»ç¾÷ÀÚµî·Ï ¹øÈ£°¡ ¾ø½À´Ï´Ù.');");
+			out.println("alert('ì‚¬ì—…ìë“±ë¡ ë²ˆí˜¸ê°€ ì—†ìŠµë‹ˆë‹¤.');");
 			out.println("history.back();");
 			out.println("</script>");
 		} else {

@@ -21,6 +21,19 @@
 
 <script type="text/javascript" src="_scripts/login.js"></script>
 <script>
+function deleteresdat(s){ // 식당 댓글 없애기
+	
+	var re = confirm("댓글을 삭제하시겠습니까??");
+	
+	
+	if(re){
+		location.href="deleteresdat.do?dnum="+s;		
+	}
+	
+}
+
+
+
 //=================메뉴별로 나오기
 function menuAjax(s) {
 	$.ajax({
@@ -28,6 +41,19 @@ function menuAjax(s) {
 		url : "./manage2.jsp",
 		data : {
 			title:s,
+		},
+		success : whenSuccessP,
+		error : whenErrorP
+	});
+}
+
+
+function pageResdat(s) {	
+	$.ajax({
+		type : "post",
+		url : "./manage_resdat.jsp",
+		data : {
+			page:s,
 		},
 		success : whenSuccessP,
 		error : whenErrorP
@@ -94,13 +120,27 @@ function whenErrorP() {
 	<table class="table table-striped" style=" margin-top:10px;">
 	<thead>
 	<tr><th colspan="6" style="text-align:center;">[댓글]</th></tr>
-	<tr><th>식당이름</th><th>작성자</th><th>음식평</th><th style="width:50%;">내용</th><th>날짜</th></tr>
+	<tr><th>식당이름</th><th>작성자</th><th>음식평</th><th style="width:50%;">내용</th><th>날짜</th><th></th></tr>
 	</thead>
 	<tbody>
-     <% List<resdatDTO> rd = ps.resdatall(request, response);  // 아이디에 맞는 신청한 파티 들고오기
+     <% List<resdatDTO> rd = ps.resdatall(request, response); // 아이디에 맞는 신청한 파티 들고오기
      
-     
-     if(rd!=null){
+     if(rd != null){
+    	 int pa=1;
+         if(request.getParameter("page")!=null){
+         pa = Integer.parseInt(request.getParameter("page"));}
+         int pag = rd.size()/20;
+         int num = 11;
+         int pg = 20;
+         int st = (pa-1)/10;
+         
+         if(st == (pag/10)){
+         	num = (pag%10)+2;
+         }
+         
+         if(pa == (pag+1)){
+         	pg = rd.size()%20;
+         }
     	 for(int i = 0; i <rd.size();i++){%>
 	<tr>
 	<td><a href="restaurantDetail.bo?rnum=<%=rd.get(i).getRnum()%>"><%=rd.get(i).getStore() %></a></td>
@@ -108,9 +148,16 @@ function whenErrorP() {
 	<td><a href="restaurantDetail.bo?rnum=<%=rd.get(i).getRnum()%>"><%for(int k = 0; k <rd.get(i).getPyung();k++){ %>★<%} %></a></td>
 	<td><a href="restaurantDetail.bo?rnum=<%=rd.get(i).getRnum()%>"><%=rd.get(i).getDcontent() %></a></td>
 	<td><a href="restaurantDetail.bo?rnum=<%=rd.get(i).getRnum()%>"><%=rd.get(i).getDate()%></a></td>
-	<td><input type="button" value="삭제"></td></tr>
-		<%}}else{
-			%><tr><td colspan="6" style="color:red;">작성된 댓글이 없습니다.</td></tr>
+	<td><a href="javascript:deleteresdat('<%=rd.get(i).getDnum() %>')"><input type="button" value="삭제"></a></td></tr>
+		<%}%>
+		<tr><td colspan="6" style="text-align:center;">
+		<%if(st!=0){%>	
+		<button class="btn btn-success" onClick="pageResdat('<%=((st-1)*10)+1%>')">◀</button>
+		<%}for(int k =(st*10)+1; k<(st*10)+num; k++){%>
+	     <button class="btn btn-success" onClick="pageResdat('<%=k%>')"><%=k %></button>
+	<% } if(st != (pag/10)){ %>
+	<button class="btn btn-success" onClick="pageResdat('<%=((st+1)*10)+1 %>')">▶</button>
+	<%}}else{%><tr><td colspan="6" style="color:red;">작성된 댓글이 없습니다.</td></tr>
 		<%} %>
 	</tbody>
 	</table>

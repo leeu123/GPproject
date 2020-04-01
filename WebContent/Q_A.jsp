@@ -59,7 +59,7 @@
 	
    %>
 
-	<nav>
+	<nav style="height:auto;">
 		<img src="img\board_nav_img.jpg" style="width: 100%;">
 	</nav>
 	<section style="min-height: 649px; width: 100%; padding-bottom: 30px;">

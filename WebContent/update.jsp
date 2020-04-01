@@ -58,7 +58,7 @@
 <%
 request.setCharacterEncoding("UTF-8");
 String id = (String) session.getAttribute("id");
-String nic = (String) session.getAttribute("nic");
+String nick = (String) session.getAttribute("nick");
 String pw = (String) session.getAttribute("pw");
 session.setAttribute("pworiginal",pw);
 String name = (String) session.getAttribute("name");
@@ -97,14 +97,14 @@ if (pw == pw2)
 function total_check(){
 var reg = /^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
 var password = naver.pw.value
-  var niclength = naver.nic.value.length
-	var nicname = naver.nic.value
+  var nicklength = naver.nick.value.length
+	var nickname = naver.nick.value
 	var nameimport = naver.name.value
-	if (nicname == "")
+	if (nickname == "")
 	{
 
 		alert("닉네임을 입력해주세요.")
-		naver.nic.focus()
+		naver.nick.focus()
 	}
 	else if ( nameimport== "")
 	{
@@ -112,11 +112,11 @@ var password = naver.pw.value
 		alert("이름을 입력해주세요.")
 		naver.name.focus()
 	}
-	else if (niclength < 8)
+	else if (nicklength < 8)
 	{
 		alert("8자 이상 쓰셔야 합니다.")
-	    naver.nic.focus()
-	    naver.nic.select()
+	    naver.nick.focus()
+	    naver.nick.select()
 	}   
      else if(false === reg.test(password)) {
     alert('비밀번호는 8자 이상이어야 하며, 숫자/소문자/특수문자를 모두 포함해야 합니다.');
@@ -141,19 +141,8 @@ document.naver.submit();
  <FORM name = "naver" action ="update_process.jsp" method = post >
  <tr>
  <td align = "center">
-<a href = "gpindex.jsp"><img src ="img\\gplogo1.png" style = "width : 400px; height : 90px" ></a>
+<a href = "gpindex.jsp"><img src ="img\\gplogo1.png" style = "width : 400px; height : 120px" ></a>
   </td>
-  </tr>
- 
-  
-  <tr>
-
-   <td class="l">닉네임 </td>
-   </tr>
-   <tr>
-   <td>
-   <div><input type = "text" class="f"name = "nic"value='${nic}' placeholder="닉네임을 입력하세요" onfocus="this.placeholder = ''" onblur="this.placeholder = '닉네임을 입력하세요'">  </div> 
-   </td>
   </tr>
 
 
@@ -207,24 +196,6 @@ document.naver.submit();
   
    </td>
   </tr>
-
-
-  <tr>
-   <td class="l"> 성별 </td>
-   </tr>
-   <tr>
-   <td>
-    <div><select class= "o"name = "age">
-	 <option> 성별 </option>
-     <option> 남자 </option>
-     <option> 여자 </option>
-     
-	</select></div>
-   </td>
-  </tr>
-
-
-
 
   <tr>
    <td class "l"> 본인확인 이메일 </td>

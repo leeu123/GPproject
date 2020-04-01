@@ -35,6 +35,17 @@ scope : 자바빈 객체가 저장될 영역을 지정한다. (page, request, se
 <body>
 
 	<%   
+	String year = request.getParameter("year");
+	String month = request.getParameter("month");
+	String day = request.getParameter("day");
+	
+	if(month.length()!=2||day.length()!=2){
+		month = "0"+month;
+		day = "0"+day;
+	}
+	
+    dto.setAge(year+month+day);
+	
 String id =null;     
 if(session.getAttribute("id")!=null){  //로그인이 되어있는지를 확인하기위해서 세션이 셋 되어 있으면 아이디 변수에 로그인된 아이디를 저장해둔다
 id = (String)session.getAttribute("id");  	  
@@ -52,7 +63,7 @@ id = (String)session.getAttribute("id");
          }else if(result == 1){
         	 
         	 session.setAttribute("id",dto.getId());
-        	 session.setAttribute("nic",dto.getNick());
+        	 session.setAttribute("nick",dto.getNick());
         	 PrintWriter script = response.getWriter();
      
         	 script.println("<script>");

@@ -398,7 +398,7 @@
 							<td>
 								<div>
 									<input type="text" id="sample6_postcode" placeholder="우편번호"
-										name="postnum" style="border: none"><input
+										name="postnum" style="border: none" readonly><input
 										type="button" onclick="sample6_execDaumPostcode()"
 										value="우편번호 찾기" class="btn btn-success"
 										style="margin-left: 69px;">
@@ -415,7 +415,7 @@
 							<td>
 								<div>
 									<input type="text" id="sample6_address" placeholder="주소"
-										name="home" class="f">
+										name="home" class="f" readonly>
 								</div>
 							</td>
 						</tr>
@@ -433,7 +433,7 @@
 						<tr>
 							<td>
 								<div>
-									<input type="text" id="sample6_extraAddress" placeholder="참고항목">
+									<input type="text" id="sample6_extraAddress" placeholder="참고항목" readonly>
 									<script
 										src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 								</div>

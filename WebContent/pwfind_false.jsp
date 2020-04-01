@@ -51,17 +51,26 @@ function pw_find()
 
 var email = pwsearch.email.value
 var id = pwsearch.id.value
-if (email =="")
+var pwa = pwsearch.pwa.value
+if (email ==""&&id ==""&&pwa=="")
 {   
-	alert("email을 입력하세요");
+	alert("모든 항목을 입력하세요");
+	
+
+}else if (email =="")
+{   
+	alert("이메일을 입력하세요");
 	pwsearch.email.focus()
 
-}else if (id =="")
-{   
-	alert("id를 입력하세요");
+}else if (id ==""){
+	alert("아이디를 입력하세요");
 	pwsearch.id.focus()
-
 }
+else if (pwa ==""){
+	alert("답을 입력하세요");
+	pwsearch.pwa.focus()
+}
+
 else{
 	
 	document.pwsearch.submit();
@@ -100,6 +109,22 @@ else{
     <label for="email">이메일 주소</label>
     <input type="email" class="form-control" id="email" name = "email" placeholder="이메일을 입력하세요">
       <div style = "color : red">회원님의 정보와 일치하는 정보가 없습니다.</div>
+  </div>
+   <div class="form-group">
+    <label for="hint">비밀번호 찾기 질문</label>
+    <select class="form-control" id="pwhint"name = "pwhint">
+									<option>본인의 보물1호</option>
+									<option>가장 기억에 남는 장소</option>
+									<option>본인의 별명</option>
+									<option>부모님의 성함은</option>
+									<option>태어난 곳</option>
+								</select>
+  </div>
+  <div class="form-group">
+    <label for="hint">비밀번호 찾기 답</label>
+    <input type="text" name="pwa" class="form-control" id="pwa"
+									placeholder="힌트 정답을 입력하세요" onfocus="this.placeholder = ''"
+									onblur="this.placeholder = '힌트 정답을 입력하세요'">
   </div>
 
   <button type = "button" class="btn btn-default" onClick = "pw_find()">비밀번호찾기</button>

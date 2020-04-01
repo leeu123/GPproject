@@ -7,7 +7,7 @@
 
 </head>
 <body>
-
+<!--조건검색 코드 -->
 	<FORM action="navsearch.do" method="post" >
 		<div id="location">
 			<div id="location-bar">

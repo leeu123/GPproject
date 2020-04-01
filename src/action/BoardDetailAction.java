@@ -13,7 +13,7 @@ import vo.BoardBean;
  public class BoardDetailAction implements Action {
 	 
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{ 
-	   	System.out.println("BoardDetailAction ÀÛµ¿");
+	   	System.out.println("BoardDetailAction ï¿½Ûµï¿½");
 	   	AnswerDTO answer;
 	   	ActionForward forward = new ActionForward();
 		int board_num=Integer.parseInt(request.getParameter("board_num"));
@@ -22,7 +22,7 @@ import vo.BoardBean;
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('·Î±×ÀÎÀ» ÇÏ¼¼¿ä.');");
+			out.println("alert('ë¡œê·¸ì¸ì´ í•„ìš”í•©ë‹ˆë‹¤.');");
 			out.println("history.back();");
 			out.println("</script>");
 			

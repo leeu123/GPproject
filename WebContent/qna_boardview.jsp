@@ -72,24 +72,24 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td style="width: 10%;">글 제목</td>
+							<th style="min-width: 100px;">글 제목</th>
 							<td colspan="2"><%=article.getQtitle().replaceAll("", "&nbsp").replaceAll("<", "&gt").replaceAll(">", "&gt")%></td>
 						</tr>
 						<tr>
-							<td>작성자</td>
+							<th>작성자</th>
 							<td colspan="2"><%=article.getNick()%></td>
 						</tr>
 
 						<tr>
-							<td>작성일</td>
+							<th>작성일</th>
 							<td colspan="2"><%=article.getDate()%></td>
 						</tr>
 						<tr>
-							<td>조회수</td>
+							<th>조회수</th>
 							<td colspan="2"><%=article.getReadcount()%></td>
 						</tr>
 						<tr>
-							<td>첨부파일</td>
+							<th>첨부파일</th>
 							<td colspan="2">
 								<%
 									if (!(article.getQfile() == null)) {
@@ -103,8 +103,8 @@
 							</td>
 						</tr>
 						<tr>
-							<td>내용</td>
-							<td colspan="2" style="min-height: 100px; text-align: left"><%=article.getQcontent().replaceAll("", "&nbsp").replaceAll("<", "&gt").replaceAll(">", "&gt") %>
+							<th>내용</th>
+							<td colspan="2" style="min-height: 100px; text-align: left; white-space: pre-line;"><%=article.getQcontent()%>
 							<%if(i==1){%>
 							<br><br>
 							-----------------------------------------------------------------------------------------------------------------------

@@ -12,7 +12,7 @@ import party.Preview;
 import resdat.*;
 import vo.*;
 
-public interface partyCommandInter { // partyControllerServlet.java �뿉�꽌 �궗�슜�븷 硫붿냼�뱶�쓽 �씤�꽣�럹�씠�뒪
+public interface partyCommandInter { // partyControllerServlet.java 에서 사용할 메소드의 인터페이스
 
 	String inseParty(HttpServletRequest request, HttpServletResponse response) throws Exception;
 
@@ -133,7 +133,7 @@ public interface partyCommandInter { // partyControllerServlet.java �뿉�꽌
 	public ArrayList<resdatDTO> selelistmasjipjj(HttpServletRequest request, HttpServletResponse response)
 			throws Exception;
 	
-	
+	String searchbar2(HttpServletRequest request, HttpServletResponse response) throws Exception;	
 	
 	
 	public ArrayList<resdatDTO> resdatall(HttpServletRequest request, HttpServletResponse response) throws Exception; // 모든 댓글 들고오기
@@ -148,6 +148,12 @@ public interface partyCommandInter { // partyControllerServlet.java �뿉�꽌
 	
 	public ArrayList<DTO_AD> restauall(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
+	public String idrest(HttpServletRequest request, HttpServletResponse response) throws Exception;
 	
+	public boolean deleteresdat(HttpServletRequest request, HttpServletResponse response) throws Exception; // 관리자 페이지 식당 댓글 없애ㄱ;ㅣ
+	public boolean deleteqna(HttpServletRequest request, HttpServletResponse response) throws Exception; // 관리자 페이지 QnA 댓글 없애ㄱ;ㅣ
+	public boolean deleteparty(HttpServletRequest request, HttpServletResponse response) throws Exception; // 관리자 페이지 QnA 댓글 없애ㄱ;ㅣ
+	public boolean deletereview(HttpServletRequest request, HttpServletResponse response) throws Exception; // 관리자 페이지 QnA 댓글 없애ㄱ;ㅣ
+	public boolean deleterestau(HttpServletRequest request, HttpServletResponse response) throws Exception; // 관리자 페이지 QnA 댓글 없애ㄱ;ㅣ
 
 }

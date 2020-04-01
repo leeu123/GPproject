@@ -39,7 +39,7 @@ String s = URLEncoder.encode("중식","UTF-8");
 <article>
 </article>
 <div id="ptitle">
-<img src="img/ptitle.png" width="100%" height="100%">
+<img src="img/ptitle1.jpg" width="100%" height="100%">
 </div>
 <div id="pic">
 <div id="section" style="border:none;">

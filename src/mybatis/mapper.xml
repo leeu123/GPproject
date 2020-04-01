@@ -28,6 +28,7 @@
 		select * from party where cate = #{cate} and now() > pdate
 		order by pnum desc;
 	</select>
+	
 	<!-- 파티 모집 정보 등록 -->
 	<insert id="insertParty" parameterType="pt">
 		insert into party
@@ -74,6 +75,65 @@
 		select pnum from party where now() between sins and sinf
 		and pnum = #{pnum};
 	</select>
+	
+	
+	<!-- 마이페이지 식당댓글 삭제 -->
+	<delete id="deleteresdat" parameterType="Integer">
+	delete from resdat where dnum = #{dnum};
+	</delete>
+	
+	<!-- qna 답변 있는지 확인 -->
+	<select id="selectanswer" parameterType="Integer" resultType="Integer">
+	select count(*) from qna_answer where qnum = #{qnum};
+	</select>
+	
+	
+	<!-- 마이페이지 qna 삭제 -->
+	<delete id="deleteqna" parameterType="Integer">
+	delete from qnaboard where qnum = #{qnum};
+	</delete>
+	
+	<!-- qna 답변 있는지 확인 -->
+	<select id="selectpdat" parameterType="Integer" resultType="Integer">
+	select count(*) from preview where pnum = #{pnum};
+	</select>
+	
+	<!-- qna 답변 있는지 확인 -->
+	<select id="selectpres" parameterType="Integer" resultType="Integer">
+	select count(*) from party_apply where pnum = #{pnum};
+	</select>
+	
+	<!-- 마이페이지 party 삭제 -->
+	<delete id="deleteparty" parameterType="Integer">
+	delete from party where pnum = #{pnum};
+	</delete>
+	
+	<!-- 마이페이지 review 삭제 -->
+	<delete id="deletereview" parameterType="Integer">
+	delete from board where rnum = #{rnum};
+	</delete>
+	
+	
+	<!-- qna 답변 있는지 확인 -->
+	<select id="selectrdat" parameterType="Integer" resultType="Integer">
+	select count(*) from resdat where rnum = #{rnum};
+	</select>
+	
+	<!-- qna 답변 있는지 확인 -->
+	<select id="selectrres" parameterType="Integer" resultType="Integer">
+	select count(*) from restaurant_res where rnum = #{rnum};
+	</select>
+	
+	<!-- 마이페이지 restaurant 삭제 -->
+	<delete id="deleterestau" parameterType="Integer">
+	delete from restaurant where rnum = #{rnum};
+	</delete>
+	
+	
+	
+	
+	
+	
 
 
 	<!-- 평점 베스트 10 식당 정보 포함 수정 후 -->
@@ -170,10 +230,10 @@
 
 
 	<!-- 식당번호와 같은 식당 정보 찾아오기 -->
-	<select id="selectRestau" parameterType="Integer"
-		resultType="ad">
+	<select id="selectRestau" parameterType="Integer" resultType="ad">
 		select * from restaurant where rnum = #{rnum};
 	</select>
+	
 
 	<!-- 가장 최근의 댓글 하나 뽑아오기 식당별 -->
 
@@ -258,17 +318,20 @@
 		</where>
 		order by avg_pyung desc;
 	</select>
-	<select id="checkres" parameterType="vo.reservationDTO"
-		resultType="vo.reservationDTO">
-		select * from restaurant_res where id = #{id} and rnum =
-		#{rnum};
+	
+	<!-- 식당아이디 확인 -->
+	<select id="idrest" parameterType="Integer"	resultType="String">
+		select id from restaurant where rnum =#{rnum};
+	</select>
+	
+	<!--  예약이미 햇는지 확인 -->
+	<select id="checkres" parameterType="vo.reservationDTO"	resultType="vo.reservationDTO">
+		select * from restaurant_res where id = #{id} and rnum = #{rnum};
 	</select>
 
 	<!-- 식당 예약 정보 입력 -->
 	<insert id="reservation" parameterType="vo.reservationDTO">
-		insert into
-		restaurant_res (rnum, id, resdate, restime ,rdate)
-		values(#{rnum},#{id},#{resdate},#{restime},now());
+		insert into	restaurant_res (rnum, id, resdate, restime ,rdate)	values(#{rnum},#{id},#{resdate},#{restime},now());
 	</insert>
 
 	<!-- 식당 예약 취소 -->
@@ -280,6 +343,18 @@
 
 	<select id="searchbar" resultType="ad" parameterType="ad">
 		select * from restaurant
+		<where>
+			home like concat('%',#{keyword},'%')
+			or
+			store like
+			concat('%',#{keyword},'%')
+			or
+			type like concat('%',#{keyword},'%')
+		</where>
+		order by rnum desc limit #{startpage},10;
+	</select>
+	<select id="searchbarCount" resultType="int" parameterType="ad">
+		select count(*) from restaurant
 		<where>
 			home like concat('%',#{keyword},'%')
 			or
@@ -354,136 +429,120 @@
 		restaurant where location = '충남' order by avg_pyung desc limit 10;
 	</select>
 
-	<!-- 회원 정보 들고 오기 -->
+<!-- 회원 정보 들고 오기  -->
 	<select id="member" parameterType="String" resultType="mb">
-		select *
-		from membership where id = #{id};
+		select * from membership where id = #{id};
 	</select>
-
-
-	<!-- 로그인한 사람 파티 정보 들고 오기 -->
+	
+	
+	<!-- 로그인한 사람 파티 정보 들고 오기  -->
 	<select id="party" parameterType="String" resultType="pt">
-		select *
-		from party where id = #{id} and pdate > now() order by pdate asc limit
-		5;
+		select * from party where id = #{id} and pdate > now() order by pdate asc limit 5;
 	</select>
-
-	<!-- 로그인한 사람 파티 정보 들고 오기 -->
+	
+	<!-- 로그인한 사람 파티 정보 들고 오기  -->
 	<select id="party1" parameterType="String" resultType="pt">
-		select *
-		from party where id = #{id} and now() >= pdate order by pdate desc
-		limit 5;
+		select * from party where id = #{id} and now() >= pdate order by pdate desc limit 5;
 	</select>
-
-
-	<!-- 로그인한 사람 리뷰 정보 들고 오기 -->
+	
+	
+	<!-- 로그인한 사람 리뷰 정보 들고 오기  -->
 	<select id="review" parameterType="String" resultType="rb">
-		select *
-		from board where id = #{id} order by date desc limit 5;
+		select * from board where id = #{id} order by date desc limit 5;
 	</select>
-
-	<!-- 로그인한 사람 리뷰 정보 들고 오기 -->
-	<select id="QnA" parameterType="String"
-		resultType="vo.BoardBean">
-		select * from qnaboard where id = #{id} order by date desc
-		limit 5;
+	
+	<!-- 로그인한 사람 리뷰 정보 들고 오기  -->
+	<select id="QnA" parameterType="String" resultType="vo.BoardBean">
+		select * from qnaboard where id = #{id} order by date desc limit 5;
 	</select>
-
-
-	<!-- 신청한 파티 정보 들고 오기 -->
+	
+	
+	<!-- 신청한 파티 정보 들고 오기  -->
 	<select id="apparty" parameterType="String" resultType="pt">
-		select *
-		from gpteam.party where pnum in(select pnum from gpteam.party_apply
-		where id = #{id}) and pdate > now() order by pdate asc limit 5;
+		select * from gpteam.party where pnum in(select pnum from gpteam.party_apply where id = #{id}) and pdate > now() order by pdate asc limit 5;
 	</select>
-
-
+	
+	
 	<!-- 작성한 댓글 정보 들고 오기 -->
 	<select id="resdat" parameterType="String" resultType="rs">
-		select *,(select store from gpteam.restaurant where restaurant.rnum =
-		resdat.rnum) as store from gpteam.resdat where id = #{id} order by
-		date desc limit 5;
-	</select>
+select *,(select store from gpteam.restaurant where restaurant.rnum = resdat.rnum) as store from gpteam.resdat where id = #{id} order by date desc limit 5;
+   </select>
 
-	<!-- 인천 맛집 베스트 10 -->
+<!-- 인천 맛집 베스트 10  -->
 	<select id="masjipic" resultType="rs">
 		select rnum,(select
 		avg(resdat.pyung) from resdat where resdat.rnum = restaurant.rnum) as
 		avg_pyung, store, postnum, home, dethome, file, readcount from
 		restaurant where location = '인천' order by avg_pyung desc limit 10;
 	</select>
-
-	<!-- 세종 맛집 베스트 10 -->
+	
+	<!-- 세종 맛집 베스트 10  -->
 	<select id="masjipsj" resultType="rs">
 		select rnum,(select
 		avg(resdat.pyung) from resdat where resdat.rnum = restaurant.rnum) as
 		avg_pyung, store, postnum, home, dethome, file, readcount from
 		restaurant where location = '세종' order by avg_pyung desc limit 10;
 	</select>
-
-	<!-- 울산 맛집 베스트 10 -->
+	
+	<!-- 울산 맛집 베스트 10  -->
 	<select id="masjipus" resultType="rs">
 		select rnum,(select
 		avg(resdat.pyung) from resdat where resdat.rnum = restaurant.rnum) as
 		avg_pyung, store, postnum, home, dethome, file, readcount from
 		restaurant where location = '울산' order by avg_pyung desc limit 10;
 	</select>
-
-	<!-- 경남 맛집 베스트 10 -->
+	
+	<!-- 경남 맛집 베스트 10  -->
 	<select id="masjipkn" resultType="rs">
 		select rnum,(select
 		avg(resdat.pyung) from resdat where resdat.rnum = restaurant.rnum) as
 		avg_pyung, store, postnum, home, dethome, file, readcount from
 		restaurant where location = '경남' order by avg_pyung desc limit 10;
 	</select>
-
-	<!-- 경북 맛집 베스트 10 -->
+	
+	<!-- 경북 맛집 베스트 10  -->
 	<select id="masjipkb" resultType="rs">
 		select rnum,(select
 		avg(resdat.pyung) from resdat where resdat.rnum = restaurant.rnum) as
 		avg_pyung, store, postnum, home, dethome, file, readcount from
 		restaurant where location = '경북' order by avg_pyung desc limit 10;
 	</select>
-
-	<!-- 대구 맛집 베스트 10 -->
+	
+	<!-- 대구 맛집 베스트 10  -->
 	<select id="masjipdg" resultType="rs">
 		select rnum,(select
 		avg(resdat.pyung) from resdat where resdat.rnum = restaurant.rnum) as
 		avg_pyung, store, postnum, home, dethome, file, readcount from
 		restaurant where location = '대구' order by avg_pyung desc limit 10;
 	</select>
-
-	<!-- 전남 맛집 베스트 10 -->
+	
+	<!-- 전남 맛집 베스트 10  -->
 	<select id="masjipjn" resultType="rs">
 		select rnum,(select
 		avg(resdat.pyung) from resdat where resdat.rnum = restaurant.rnum) as
 		avg_pyung, store, postnum, home, dethome, file, readcount from
 		restaurant where location = '전남' order by avg_pyung desc limit 10;
 	</select>
-
-	<!-- 전북 맛집 베스트 10 -->
+	
+	<!-- 전북 맛집 베스트 10  -->
 	<select id="masjipjb" resultType="rs">
 		select rnum,(select
 		avg(resdat.pyung) from resdat where resdat.rnum = restaurant.rnum) as
 		avg_pyung, store, postnum, home, dethome, file, readcount from
 		restaurant where location = '전북' order by avg_pyung desc limit 10;
 	</select>
-
-	<!-- 제주 맛집 베스트 10 -->
+	
+	<!-- 제주 맛집 베스트 10  -->
 	<select id="masjipjj" resultType="rs">
 		select rnum,(select
 		avg(resdat.pyung) from resdat where resdat.rnum = restaurant.rnum) as
 		avg_pyung, store, postnum, home, dethome, file, readcount from
 		restaurant where location = '제주' order by avg_pyung desc limit 10;
 	</select>
-
-
-
-
+	
 	<!-- 작성한 댓글 정보 모두 들고 오기 -->
 	<select id="resdatall" resultType="rs">
-		select *,(select store from gpteam.restaurant where restaurant.rnum =
-		resdat.rnum) as store from gpteam.resdat order by date desc;
+		select *,(select store from gpteam.restaurant where restaurant.rnum = resdat.rnum) as store from gpteam.resdat order by date desc;
 	</select>
 	
 	
@@ -516,5 +575,7 @@
 	<select id="restauall" resultType="vo.DTO_AD">
 		select * from restaurant order by rnum desc;
 	</select>
+	
+
 
 </mapper>

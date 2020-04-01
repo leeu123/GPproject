@@ -15,6 +15,16 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
+function deleteparty(s){ //파티 없애기
+	
+	var re = confirm("파티를 삭제하시겠습니까??");
+	
+	
+	if(re){
+		location.href="deleteparty.do?pnum="+s;		
+	}
+	
+}
 //=================페이징 처리 식당
 function pageParty(s) {	
 	$.ajax({
@@ -74,7 +84,7 @@ function whenErrorP() {
 	<td><a href="partyinfo.do?pnum=<%=pt.get(i).getPnum()%>"><%=pt.get(i).getNick()%></a></td>
 	<td><a href="partyinfo.do?pnum=<%=pt.get(i).getPnum()%>"><%=pt.get(i).getPreprice() %></a></td>
 	<td><a href="partyinfo.do?pnum=<%=pt.get(i).getPnum()%>"><%=pt.get(i).getPdate() %></a></td>
-	<td><input type="button" value="삭제"></td></tr>	
+	<td><a href="javascript:deleteparty('<%=pt.get(i).getPnum() %>')"><input type="button" value="삭제"></a></td></tr>	
 		<%}%>
 		<tr><td colspan="5" style="text-align:center;">
 		<%if(st!=0){%>	

@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
 <link rel="stylesheet" type="text/css" href="css/boardstyle.css">
-<link rel="stylesheet" type="text/css" href="css/gpstyle2.css">
+<link rel="stylesheet" type="text/css" href="css/gpstyleboard.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
@@ -66,13 +66,13 @@
 	}
 	%>
 
-	<nav>
+	<nav style="height:auto;">
 		<img src="img\board_nav_img.jpg" style="width: 100%">
 	</nav>
-	<section style="min-height: 551px;width: 100%;margin-bottom: 30px;">
+	<section style="min-height: 620px;width: 100%;margin-bottom: 30px;">
 		<div id="board_bar">
 			<div id="board_box">
-				<a href="board.jsp"><span id="review"><h1>리뷰 게시판</h1></span></a>
+				<span id="review"><h1>리뷰 게시판</h1></span>
 			</div>
 			<div id="board_box">
 				<form method="post" action="reviewLocalSearch.bo" name="location">

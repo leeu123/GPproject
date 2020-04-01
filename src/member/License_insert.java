@@ -31,14 +31,14 @@ public class License_insert implements Action {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('µî·Ï½ÇÆÐ')");
+			out.println("alert('ï¿½ï¿½Ï½ï¿½ï¿½ï¿½')");
 			out.println("history.back();");
 			out.println("</script>");
 		}
 		else{
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("gpindex.jsp");
+			forward.setPath("index.jsp");
 		}
 
 		return forward;

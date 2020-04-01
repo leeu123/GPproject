@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	errorPage="dbEx1.jsp"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.sql.*"%>
 <html>
 <head>
@@ -10,6 +9,7 @@
 	<%
 	request.setCharacterEncoding("UTF-8");
     String pw = request.getParameter("pw");
+    String id = (String)session.getAttribute("id");
 
 
 Connection conn = null;
@@ -17,16 +17,16 @@ Statement stmt = null;
 int i = 0;
 try{
 Class.forName("com.mysql.jdbc.Driver");
-conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gpteam","root","nicu0309");
+conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gpteam","root","12345");
 if(conn ==null){
 throw new Exception("데이터베이스에 연결할 수 없습니다.<br>");
 }
 	stmt=conn.createStatement();
-	ResultSet rs = stmt.executeQuery("select * from membership where pw = '"+pw+"'; ");
+	ResultSet rs = stmt.executeQuery("select * from membership where id = '"+id+"' and pw = '"+pw+"'; ");
 	if(rs.next()){
 				session.setAttribute("id",rs.getString("id"));
                 session.setAttribute("pw",rs.getString("pw"));
-				session.setAttribute("nic",rs.getString("nic"));
+				session.setAttribute("nick",rs.getString("nick"));
                 session.setAttribute("name",rs.getString("name"));
 				session.setAttribute("email",rs.getString("email"));
 				session.setAttribute("pwa",rs.getString("pwa"));

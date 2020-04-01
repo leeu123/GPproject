@@ -133,6 +133,15 @@ public class partyAction {
 			return false;
 	}
 	
+	public String idrest(int rnum) { // ������ ���� ������
+		
+		SqlSession sqlSession = factory.openSession();
+		String restid = sqlSession.selectOne("idrest",rnum);
+		sqlSession.close();
+		
+		return restid;
+	}
+	
 	public reservationDTO cheres(reservationDTO rsdto) { // ������ ���� ������
 		reservationDTO rsrs = null;
 		SqlSession sqlSession = factory.openSession();
@@ -161,6 +170,106 @@ public class partyAction {
 			return false;
 		}
 	 return true;
+	 }
+	
+	public boolean deleteresdat(int dnum) {  // �Ĵ� ���� ���� ���� (���)
+		try{SqlSession sqlSession = factory.openSession();
+		sqlSession.delete("deleteresdat", dnum);
+		sqlSession.commit();
+		sqlSession.close();
+		System.out.println("삭제완료");
+		 return true;
+	 }
+		catch(Exception e) {
+			return false;
+		}
+	 }
+	
+	
+	public boolean deleteqna(int qnum) {  // �Ĵ� ���� ���� ���� (���)
+		try{SqlSession sqlSession = factory.openSession();
+		int anw =sqlSession.selectOne("selectanswer", qnum);
+		if(anw>0) {
+			return false;
+		}
+		
+		
+		sqlSession.delete("deleteqna", qnum);
+		sqlSession.commit();
+		sqlSession.close();
+		System.out.println("삭제완료");
+		 return true;
+	 }
+		catch(Exception e) {
+			return false;
+		}
+	
+	 }
+	
+	public boolean deleteparty(int pnum) {  // �Ĵ� ���� ���� ���� (���)
+		try{SqlSession sqlSession = factory.openSession();
+		int dat = sqlSession.selectOne("selectpdat",pnum);
+		if(dat>0) {
+			return false;
+		}
+		
+		int res = sqlSession.selectOne("selectpres",pnum);
+		if(res>0) {
+			return false;
+		}
+		
+		
+		
+		
+		sqlSession.delete("deleteparty", pnum);
+		sqlSession.commit();
+		sqlSession.close();
+		System.out.println("삭제완료");
+		 return true;
+	 }
+		catch(Exception e) {
+			return false;
+		}
+	
+	 }
+	
+	public boolean deletereview(int rnum) {  // �Ĵ� ���� ���� ���� (���)
+		try{SqlSession sqlSession = factory.openSession();
+		sqlSession.delete("deletereview", rnum);
+		sqlSession.commit();
+		sqlSession.close();
+		System.out.println("삭제완료");
+		 return true;
+	 }
+		catch(Exception e) {
+			return false;
+		}
+	
+	 }
+	
+	public boolean deleterestau(int rnum) {  // �Ĵ� ���� ���� ���� (���)
+		try{SqlSession sqlSession = factory.openSession();
+		
+		int dat = sqlSession.selectOne("selectrdat",rnum);
+		if(dat>0) {
+			return false;
+		}
+		
+		int res = sqlSession.selectOne("selectrres",rnum);
+		if(res>0) {
+			return false;
+		}
+		
+		sqlSession.delete("deleterestau", rnum);
+		sqlSession.commit();
+		sqlSession.close();
+		System.out.println("삭제완료");
+		 return true;
+	 }
+		catch(Exception e) {
+			return false;
+		}
+	
 	 }
 	
 	

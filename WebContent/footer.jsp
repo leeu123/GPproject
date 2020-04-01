@@ -3,9 +3,9 @@
 <head>
 <title>GreenPlate</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400&display=swap&subset=korean" rel="stylesheet">
 
-
-<link rel="stylesheet" type="text/css" href="css/gpstyle2.css">
+<link rel="stylesheet" type="text/css" href="css/footerstyle.css">
 <link rel="stylesheet" type="text/css" href="css/menubar.css">
 <link rel="stylesheet" type="text/css" href="css/loginstyle.css"/>
 
@@ -18,9 +18,11 @@
  <body>
    <div id="footer">
 			<div id="footerinner">
-				<div id="ftleft">
+				<div id="ftleft"">
 					<ul>
-						<li><a href="aboutus.jsp">개인정보처리방침</a></li>
+					<li>
+					<a href="aboutus.jsp">GreenPlate 소개</a></li>
+						
 						<li>|</li>
 						<li>서비스이용약관 </li>
 						<li>|</li>
@@ -32,7 +34,7 @@
 						<li>|</li>
 						<li><a href ="ad.jsp" style ="color : white">광고문의</a></li>
 						<li>|</li>
-						<li>BI 소개</li>
+						<li>개인정보처리방침</li>
 					</ul>
 					<p>
 						법인명: (주) 그린플레이트 대표자: 김상민 사업자등록번호 211-87-61044 통신판매업:

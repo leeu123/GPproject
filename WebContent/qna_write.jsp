@@ -81,14 +81,14 @@
 				<div class="form-group">
 					<label for="qcontent" class="col-sm-2 control-label">게시글</label>
 					<div class="col-sm-10">
-						<textarea class="form-control" rows="10" name="qcontent"
+						<textarea class="form-control" rows="10" name="qcontent" cols="30" wrap="hard"
 							required="required"></textarea>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="qfile" class="col-sm-2 control-label">첨부파일</label>
 					<div class="col-sm-10">
-						<input type="file" class="form-control" required="required"
+						<input type="file" class="form-control" required="required" 
 							name="qfile">
 					</div>
 				</div>

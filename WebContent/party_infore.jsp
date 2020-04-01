@@ -43,7 +43,7 @@ int Apply_count  = ps.seleApplycount(request, response);
   
     //=================입력 Ajax
 	function datdung() {
-    	if(this.id.value=="null"){
+    	if(this.id.value=="id"){
     		alert("로그인이 필요합니다.");
     	}
     	else if(this.rcontent.value == "") {

@@ -3,7 +3,10 @@
 <head>
 <title>GreenPlate</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/gpstyle2.css">
+
+<link rel='stylesheet' type='text/css'
+	href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic'>
+<link rel="stylesheet" type="text/css" href="css/headerstyle.css">
 <link rel="stylesheet" type="text/css" href="css/menubar.css">
 <link rel="stylesheet" type="text/css" href="css/loginstyle.css" />
 <link rel="stylesheet" type="text/css" href="css/animated-header.css" />
@@ -85,8 +88,8 @@ if(keyCode==13) searchbar.submit();
 						<% if(id.equals("leeu123")||id.equals("nicu0309")||id.equals("dlwlrma0516")||id.equals("leeu7916")||id.equals("administrator")) {%>
 						<a href="manage.jsp">관리자 페이지</a>
 						
-					<%} %>
-						<a href="mypage.jsp">회원 정보</a>
+					<%}else{ %>
+						<a href="mypage.jsp">회원 정보</a><%} %>
 							
 							<!-- 사업자 확인을 위해 business테이블에 동일한 아이디가 있으면 사업자 등록을 한거기 때문에 세션으로 등록한 아이디를 같이 보낸거 -->
 							<a href="licensefind.bo?id=<%=id%>">식당등록</a> <a

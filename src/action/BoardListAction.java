@@ -26,14 +26,14 @@ import vo.PageInfo;
 		
 		BoardListService boardListService = new BoardListService();
 		int listCount=boardListService.getListCount();
-		System.out.println("boardlistaction ÆäÀÌÁö getlisrcount() ¸Þ¼Òµå ¸®ÅÏ°ª"+listCount);
+		System.out.println("boardlistaction íŽ˜ì´ì§€ getlisrcount() ë©”ì†Œë“œ ë¦¬í„´ê°’"+listCount);
 		articleList = boardListService.getArticleList(page,limit);
 		
-		//ÃÑ ÆäÀÌÁö ¼ö.
-   		int maxPage=(int)((double)listCount/limit+0.95); //0.95¸¦ ´õÇØ¼­ ¿Ã¸² Ã³¸®.
-   		//ÇöÀç ÆäÀÌÁö¿¡ º¸¿©ÁÙ ½ÃÀÛ ÆäÀÌÁö ¼ö(1, 11, 21 µî...)
+		//ì´ íŽ˜ì´ì§€ ìˆ˜.
+   		int maxPage=(int)((double)listCount/limit+0.95); //0.95ë¥¼ ë”í•´ì„œ ì˜¬ë¦¼ ì²˜ë¦¬.
+   		//í˜„ìž¬ íŽ˜ì´ì§€ì— ë³´ì—¬ì¤„ ì‹œìž‘ íŽ˜ì´ì§€ ìˆ˜(1, 11, 21 ë“±...)
    		int startPage = (((int) ((double)page / 10 + 0.9)) - 1) * 10 + 1;
-   		//ÇöÀç ÆäÀÌÁö¿¡ º¸¿©ÁÙ ¸¶Áö¸· ÆäÀÌÁö ¼ö.(10, 20, 30 µî...)
+   		//í˜„ìž¬ íŽ˜ì´ì§€ì— ë³´ì—¬ì¤„ ë§ˆì§€ë§‰ íŽ˜ì´ì§€ ìˆ˜.(10, 20, 30 ë“±...)
    	        int endPage = startPage+10-1;
 
    		if (endPage> maxPage) endPage= maxPage;

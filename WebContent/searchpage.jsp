@@ -13,9 +13,10 @@
 <head>
 <title>2020 한식 베스트 10</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="css/gpstylemasjip.css">
+<link rel="stylesheet" type="text/css" href="css/gpstyle2.css">
 <link rel="stylesheet" type="text/css" href="css/loginstyle.css" />
 <link rel="stylesheet" type="text/css" href="css/masjip.css" />
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel='stylesheet' type='text/css'
@@ -95,14 +96,16 @@
 							<td colspan="3"></td>
 						</tr>
 						<tr style="height: 30px;">
-							<td rowspan="5" style="width: 220px;"><img
+							<td rowspan="5" style="width: 220px;"><a
+								href="restaurantDetail.bo?rnum=<%=articleList.get(i).getRnum()%>"><img
 								src="restaurantUpload/<%=list.get(0)%>" width="200px;"
 								height="180px"
-								style="border-radius: 5px; border: solid 0.5px gray;"></td>
+								style="border-radius: 5px; border: solid 0.5px gray;"></a></td>
 							<td align="left"><div
-									style="font-size: 0.59cm; color: #353535; font-weight: 600;">
+									style="font-size: 0.59cm; color: #353535; font-weight: 600;"><a
+								href="restaurantDetail.bo?rnum=<%=articleList.get(i).getRnum()%>">
 									<%=(i + 1)%>.&nbsp;<%=articleList.get(i).getStore()%><font
-										color="<%=color%>">&nbsp;&nbsp;<%=articleList.get(i).getAvg_pyung()%></font>
+										color="<%=color%>">&nbsp;&nbsp;<%=articleList.get(i).getAvg_pyung()%></font></a>
 								</div></td>
 							<td align="right"><img src="img/readcount.png"
 								style="width: 20px;"> &nbsp;<%=articleList.get(i).getReadcount()%></td>

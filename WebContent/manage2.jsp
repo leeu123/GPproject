@@ -15,6 +15,60 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
+function deleteresdat(s){ // 식당 댓글 없애기
+	
+	var re = confirm("댓글을 삭제하시겠습니까??");
+	
+	
+	if(re){
+		location.href="deleteresdat.do?dnum="+s;		
+	}
+	
+}
+
+function deleteqna(s){ // QnA 없애기
+	
+	var re = confirm("QnA를 삭제하시겠습니까??");
+	
+	
+	if(re){
+		location.href="deleteqna.do?qnum="+s;		
+	}
+	
+}
+
+function deletereview(s){ // 리뷰 없애기
+	
+	var re = confirm("리뷰를 삭제하시겠습니까??");
+	
+	
+	if(re){
+		location.href="deletereview.do?rnum="+s;		
+	}
+	
+}
+
+function deleteparty(s){ //파티 없애기
+	
+	var re = confirm("파티를 삭제하시겠습니까??");
+	
+	
+	if(re){
+		location.href="deleteparty.do?pnum="+s;		
+	}
+	
+}
+
+function deleterestau(s){ // 식당 없애기
+	
+	var re = confirm("식당을 삭제하시겠습니까??");
+	
+	
+	if(re){
+		location.href="deleterestau.do?rnum="+s;		
+	}
+	
+}
 	//=================페이징 처리 식당
 	function pageRestau(s) {
 		$.ajax({
@@ -161,7 +215,7 @@
 						href="restaurantDetail.bo?rnum=<%=rd.get(i).getRnum()%>"><%=rd.get(i).getDcontent()%></a></td>
 					<td><a
 						href="restaurantDetail.bo?rnum=<%=rd.get(i).getRnum()%>"><%=rd.get(i).getDate()%></a></td>
-						<td><input type="button" value="삭제"></td>
+						<td><a href="javascript:deleteresdat('<%=rd.get(i).getDnum() %>')"><input type="button" value="삭제"></a></td>
 				</tr>
 				<%
 					}
@@ -253,7 +307,7 @@
 					<td><a href="partyinfo.do?pnum=<%=pt.get(i).getPnum()%>"><%=pt.get(i).getNick()%></a></td>
 					<td><a href="partyinfo.do?pnum=<%=pt.get(i).getPnum()%>"><%=pt.get(i).getPreprice()%></a></td>
 					<td><a href="partyinfo.do?pnum=<%=pt.get(i).getPnum()%>"><%=pt.get(i).getPdate()%></a></td>
-					<td><input type="button" value="삭제"></td>
+					<td><a href="javascript:deleteparty('<%=pt.get(i).getPnum() %>')"><input type="button" value="삭제"></a></td>
 				</tr>
 				<%
 					}
@@ -343,7 +397,7 @@
 					<td><a href="partyinfore.do?pnum=<%=ptt.get(i).getPnum()%>"><%=ptt.get(i).getNick()%></a></td>
 					<td><a href="partyinfore.do?pnum=<%=ptt.get(i).getPnum()%>"><%=ptt.get(i).getPreprice()%></a></td>
 					<td><a href="partyinfore.do?pnum=<%=ptt.get(i).getPnum()%>"><%=ptt.get(i).getPdate()%></a></td>
-					<td><input type="button" value="삭제"></td>
+					<td><a href="javascript:deleteparty('<%=ptt.get(i).getPnum() %>')"><input type="button" value="삭제"></a></td>
 				</tr>
 				<%
 					}
@@ -436,7 +490,7 @@
 						href="reviewDetail.bo?board_num=<%=rb.get(i).getRnum()%>&page=1"><%=rb.get(i).getLocation()%></a></td>
 					<td><a
 						href="reviewDetail.bo?board_num=<%=rb.get(i).getRnum()%>&page=1"><%=rb.get(i).getDate()%></a></td>
-						<td><input type="button" value="삭제"></td>
+						<td><a href="javascript:deletereview('<%=rb.get(i).getRnum() %>')"><input type="button" value="삭제"></a></td>
 				</tr>
 
 				<%
@@ -529,7 +583,7 @@
 						href="boardDetail.bo?board_num=<%=bb.get(i).getQnum()%>&page=1&id=<%=bb.get(i).getId()%>"><%=bb.get(i).getQtitle()%></a></td>
 					<td><a
 						href="boardDetail.bo?board_num=<%=bb.get(i).getQnum()%>&page=1&id=<%=bb.get(i).getId()%>"><%=bb.get(i).getDate()%></a></td>
-						<td><input type="button" value="삭제"></td>
+						<td><a href="javascript:deleteqna('<%=bb.get(i).getQnum() %>')"><input type="button" value="삭제"></a></td>
 				</tr>
 
 				<%
@@ -630,7 +684,7 @@
 						href="restaurantDetail.bo?rnum=<%=rs.get(i).getRnum()%>"><%=rs.get(i).getStore()%></a></td>
 					<td><a
 						href="restaurantDetail.bo?rnum=<%=rs.get(i).getRnum()%>">(<%=rs.get(i).getPostnum() %>)<%=rs.get(i).getHome() %>&nbsp;&nbsp;<%=rs.get(i).getDethome() %></a></td>
-						<td><input type="button" value="삭제"></td>
+						<td><a href="javascript:deleterestau('<%=rs.get(i).getRnum() %>')"><input type="button" value="삭제"></a></td>
 				</tr>
 
 

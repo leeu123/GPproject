@@ -15,6 +15,17 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
+function deleteqna(s){ // QnA 없애기
+	
+	var re = confirm("QnA를 삭제하시겠습니까??");
+	
+	
+	if(re){
+		location.href="deleteqna.do?qnum="+s;		
+	}
+	
+}
+
 //=================페이징 처리 식당
 function pageQnA(s) {	
 	$.ajax({
@@ -74,7 +85,7 @@ function whenErrorP() {
 	<td><a href="boardDetail.bo?board_num=<%=bb.get(i).getQnum()%>&page=1&id=<%=bb.get(i).getId() %>"><%=bb.get(i).getNick()%></a></td>
 	<td><a href="boardDetail.bo?board_num=<%=bb.get(i).getQnum()%>&page=1&id=<%=bb.get(i).getId() %>"><%=bb.get(i).getQtitle()%></a></td>
 	<td><a href="boardDetail.bo?board_num=<%=bb.get(i).getQnum()%>&page=1&id=<%=bb.get(i).getId() %>"><%=bb.get(i).getDate() %></a></td>
-	<td><input type="button" value="삭제"></td></tr>
+	<td><a href="javascript:deleteqna('<%=bb.get(i).getQnum() %>')"><input type="button" value="삭제"></a></td></tr>
 		<%}%>
 		<tr><td colspan="5" style="text-align:center;">
 		<%if(st!=0){%>	

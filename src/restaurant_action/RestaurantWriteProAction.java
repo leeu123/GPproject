@@ -17,7 +17,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 public class RestaurantWriteProAction implements Action {
 
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("½Ä´çµî·Ï actionÀÛµ¿");
+		System.out.println("ì‹ë‹¹ë“±ë¡ actionì‘ë™");
 		ActionForward forward = null;
 		DTO_AD dto = null;
 		String realFolder = "";
@@ -56,62 +56,61 @@ public class RestaurantWriteProAction implements Action {
 		String originalfilename4 = multi.getOriginalFileName(file4);
 		String file5 = (String) files.nextElement();
 		String originalfilename5 = multi.getOriginalFileName(file5);
-		System.out.println("¿øº»ÆÄÀÏ¸í" + originalfilename2 + "<br/>");
-		dto.setFile(originalfilename + "," + originalfilename2 + "," + originalfilename3 + "," + originalfilename4 + ","
-				+ originalfilename5);
+		System.out.println("ì›ë³¸íŒŒì¼ëª…"+originalfilename2+"<br/>");
+		dto.setFile(originalfilename+","+originalfilename2+","+originalfilename3+","+originalfilename4+","+originalfilename5);
 		String local = multi.getParameter("home");
 		System.out.println(local);
-
-		if (local.contains("¼­¿ï") == true) {
-			local = "¼­¿ï";
+		
+		if (local.contains("ì„œìš¸")==true) {
+			local="ì„œìš¸";
 			dto.setLocation(local);
-		} else if (local.contains("°æ±â") == true) {
-			local = "°æ±â";
+		}else if (local.contains("ê²½ê¸°")==true) {
+			local="ê²½ê¸°";
 			dto.setLocation(local);
-		} else if (local.contains("ÀÎÃµ") == true) {
-			local = "ÀÎÃµ";
+		}else if (local.contains("ì¸ì²œ")==true) {
+			local="ì¸ì²œ";
 			dto.setLocation(local);
-		} else if (local.contains("°­¿ø") == true) {
-			local = "°­¿ø";
+		}else if (local.contains("ê°•ì›")==true) {
+			local="ê°•ì›";
 			dto.setLocation(local);
-		} else if (local.contains("´ëÀü") == true) {
-			local = "´ëÀü";
+		}else if (local.contains("ëŒ€ì „")==true) {
+			local="ëŒ€ì „";
 			dto.setLocation(local);
-		} else if (local.contains("¼¼Á¾Æ¯º°ÀÚÄ¡½Ã") == true) {
-			local = "¼¼Á¾";
+		}else if (local.contains("ì„¸ì¢…íŠ¹ë³„ìì¹˜ì‹œ")==true) {
+			local="ì„¸ì¢…";
 			dto.setLocation(local);
-		} else if (local.contains("Ãæ³²") == true) {
-			local = "Ãæ³²";
+		}else if (local.contains("ì¶©ë‚¨")==true) {
+			local="ì¶©ë‚¨";
 			dto.setLocation(local);
-		} else if (local.contains("ÃæºÏ") == true) {
-			local = "ÃæºÏ";
+		}else if (local.contains("ì¶©ë¶")==true) {
+			local="ì¶©ë¶";
 			dto.setLocation(local);
-		} else if (local.contains("ºÎ»ê") == true) {
-			local = "ºÎ»ê";
+		}else if (local.contains("ë¶€ì‚°")==true) {
+			local="ë¶€ì‚°";
 			dto.setLocation(local);
-		} else if (local.contains("¿ï»ê") == true) {
-			local = "¿ï»ê";
+		}else if (local.contains("ìš¸ì‚°")==true) {
+			local="ìš¸ì‚°";
 			dto.setLocation(local);
-		} else if (local.contains("°æ³²") == true) {
-			local = "°æ³²";
+		}else if (local.contains("ê²½ë‚¨")==true) {
+			local="ê²½ë‚¨";
 			dto.setLocation(local);
-		} else if (local.contains("°æºÏ") == true) {
-			local = "°æºÏ";
+		}else if (local.contains("ê²½ë¶")==true) {
+			local="ê²½ë¶";
 			dto.setLocation(local);
-		} else if (local.contains("´ë±¸") == true) {
-			local = "´ë±¸";
+		}else if (local.contains("ëŒ€êµ¬")==true) {
+			local="ëŒ€êµ¬";
 			dto.setLocation(local);
-		} else if (local.contains("±¤ÁÖ") == true) {
-			local = "±¤ÁÖ";
+		}else if (local.contains("ê´‘ì£¼")==true) {
+			local="ê´‘ì£¼";
 			dto.setLocation(local);
-		} else if (local.contains("Àü³²") == true) {
-			local = "Àü³²";
+		}else if (local.contains("ì „ë‚¨")==true) {
+			local="ì „ë‚¨";
 			dto.setLocation(local);
-		} else if (local.contains("ÀüºÏ") == true) {
-			local = "ÀüºÏ";
+		}else if (local.contains("ì „ë¶")==true) {
+			local="ì „ë¶";
 			dto.setLocation(local);
-		} else if (local.contains("Á¦ÁÖÆ¯º°ÀÚÄ¡µµ") == true) {
-			local = "Á¦ÁÖ";
+		}else if (local.contains("ì œì£¼íŠ¹ë³„ìì¹˜ë„")==true) {
+			local="ì œì£¼";
 			dto.setLocation(local);
 		}
 
@@ -122,7 +121,7 @@ public class RestaurantWriteProAction implements Action {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('¸ğµçÁ¤º¸¸¦ ÀüºÎ ÀÔ·ÂÇÏ¼¼¿ä')");
+			out.println("alert('ëª¨ë“ ì •ë³´ë¥¼ ì „ë¶€ ì…ë ¥í•˜ì„¸ìš”')");
 			out.println("history.back();");
 			out.println("</script>");
 		} else {

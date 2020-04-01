@@ -33,7 +33,7 @@
 function radio_check(){
 
 
-var radio = id.finded_id.checked
+var radio = pw.finded_id.checked
 
 if(radio == false){
 alert("비밀번호를 체크하세요");
@@ -54,20 +54,28 @@ else{
 <div id="container">
 
 <%
+request.setCharacterEncoding("utf-8");
 String email = (String)request.getParameter("email");
 String pwfind_id = (String)request.getParameter("id");
+String pwhint = (String)request.getParameter("pwhint");
+String pwa = (String)request.getParameter("pwa");
+
+System.out.println(email);
+System.out.println(pwfind_id);
+System.out.println(pwhint);
+System.out.println(pwa);
 
 Connection conn = null;
 Statement stmt = null;
 int i = 0;
 try{
 Class.forName("com.mysql.jdbc.Driver");
-conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gpteam","root","nicu0309");
+conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/gpteam?useSSL=false&useUnicode=true&characterEncoding=utf8","root","12345");
 if(conn ==null){
 throw new Exception("데이터베이스에 연결할 수 없습니다.<br>");
 }
 	stmt=conn.createStatement();
-	ResultSet rs = stmt.executeQuery("select * from membership where email = '"+email+"'and id = '"+pwfind_id+"';");
+	ResultSet rs = stmt.executeQuery("select * from membership where email = '"+email+"' and id = '"+pwfind_id+"' and pwhint ='"+pwhint+"' and pwa = '"+pwa+"';");
 		if(rs.next()){%>
 			<div style = "width : 800px ;height : 300px; border : 1px solid ">
 			<p><span style = "font-size : 25px; font-weight : bold">비밀번호 찾기</span></p>
@@ -75,17 +83,16 @@ throw new Exception("데이터베이스에 연결할 수 없습니다.<br>");
 
 		  <div style = "width : 800px; height : 100px; border : 1px solid">
 		
-			 <div style = "margin-top : 35px; margin-left : 320px">
+			 <div style = "margin-top : 35px; text-align:center;">
 			 <form action = "loginpage.jsp" method = post name = "pw">
-			 <input type = "radio" name = "finded_id" >
+			 <input type = "radio" name = "finded_id" value="<%=rs.getString("id") %>">
 			 <span style = "font-size : 16px; font-weight : bold;">
 			  <% out.println(rs.getString("pw"));%>
 			 </span>
 			 </div>
 			  </div>
-			  <div style = "margin-left: 295px; margin-top: 20px;">
+			  <div style = "text-align:center; margin-top: 20px;">
 			   <button type = "button"  class="btn btn-success" style = "width : 100px;" value = "로그인 하기" onClick = "radio_check()">로그인하기</button></form>
-			   <a href = "infosearch.jsp"><button type="button" class="btn btn-success" style = "width : 110px;">비밀번호찾기</button></a>
 			 </div>
 			 
 			 </div>

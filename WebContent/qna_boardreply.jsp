@@ -2,7 +2,7 @@
 <%@page import="vo.BoardBean"%>
 
 <%
-	BoardBean article=(BoardBean)request.getAttribute("article");
+	int qnum= (Integer)request.getAttribute("qnum");
     String nowPage = (String)request.getAttribute("page");
 %>
 <html lang="en">
@@ -56,7 +56,7 @@
 				method="post" name="boardform">
 				
 				<input type="hidden" name="page" value="<%=nowPage %>" /> <input
-				type="hidden" name="qnum" value="<%=article.getQnum() %>">
+				type="hidden" name="qnum" value="<%=qnum %>">
 				<input type = "hidden" name = "loginId" value = "<%=id%>">
 			
 				
@@ -74,7 +74,7 @@
 				<div class="form-group">
 					<label for="qcontent" class="col-sm-2 control-label">게시글</label>
 					<div class="col-sm-10">
-						<textarea class="form-control" rows="10" name="qcontent"
+						<textarea class="form-control" rows="10" name="qcontent" cols="30" wrap="hard"
 							required="required"></textarea>
 					</div>
 				</div>

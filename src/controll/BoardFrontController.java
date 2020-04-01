@@ -208,13 +208,13 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet
 			
 			action = new BoardSearchAction();
 			try{
-				System.out.println("forward ½ÇÇà");
+				System.out.println("forward ï¿½ï¿½ï¿½ï¿½");
 				forward=action.execute(request, response);
 			}catch(Exception e){
 				e.printStackTrace();
 			}
 		}
-		//½Ä´çÁ¤º¸ µî·ÏÇÒ¶§
+		//ì‹ë‹¹ì •ë³´ ë“±ë¡í• ë•Œ
 		else if(command.equals("/restaurantWritePro.bo")){
 			action  = new RestaurantWriteProAction();
 			try {
@@ -222,9 +222,9 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}//½Ä´çµî·ÏÆäÀÌÁö¸¦ µé¾î°¥¶§ »ç¾÷ÀÚµî·ÏÀÌ µÇ¾îÀÖ´ÂÁö È®ÀÎÇÏ±âÀ§ÇÑ ÀÛ¾÷
+		}//ì‹ë‹¹ë“±ë¡í˜ì´ì§€ë¥¼ ë“¤ì–´ê°ˆë•Œ ì‚¬ì—…ìë“±ë¡ì´ ë˜ì–´ìˆëŠ”ì§€ í™•ì¸í•˜ê¸°ìœ„í•œ ì‘ì—…
 		else if(command.equals("/licensefind.bo")){
-			System.out.println("1¹ø"+request.getParameter("id"));
+			System.out.println("1ë²ˆ"+request.getParameter("id"));
 			String id = request.getParameter("id");
 			request.setAttribute("id", id);
 			action = new License_action();
@@ -234,7 +234,7 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet
 				e.printStackTrace();
 			}
 		}
-		//»ç¾÷ÀÚµî·Ï
+		//ì‚¬ì—…ìë“±ë¡
 		else if(command.equals("/licenseInsert.bo")){
 			action = new License_insert();
 			try{
@@ -245,7 +245,7 @@ public class BoardFrontController extends javax.servlet.http.HttpServlet
 		}
 		
 		
-		//½Ä´çÁ¤º¸ º¸±â
+		//ì‹ë‹¹ì •ë³´ ë³´ê¸°
 		else if(command.equals("/restaurantDetail.bo")){
 			action = new RestaurantDetailAction();
 			try{

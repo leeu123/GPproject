@@ -41,20 +41,25 @@
 
 </head>
 <body>
-
+<%   String top;
+					if(article.getRfile()!=null){
+					top = "80px";
+					}else{
+						top = "30px";
+					}
+%>
 
 
 	<%@include file="header.jsp"%>
 
-	<nav>
+	<nav style="height:auto;">
 		<img src="img\board_nav_img.jpg" style="width: 1900px">
 	</nav>
-	<section id="review_detail_view_section">
-		<div
-			id="review_detail_view_total_bar">
-			<div id = "review_detail_view_imgtotal_bar">
-				<%
-					String file = article.getRfile();
+	<section id="review_detail_view_section" style="min-height:570px;">
+		<div id="review_detail_view_total_bar" style="height:auto; margin-top:<%=top%>; top:auto;">
+			
+				<%   
+					if(article.getRfile()!=null){%><div id = "review_detail_view_imgtotal_bar" style="height:auto; top:auto;"><%String file = article.getRfile();
 					String[] array = file.split(",");
 
 					ArrayList<String> list = new ArrayList<String>();
@@ -68,12 +73,12 @@
 					<img src="boardUpload/<%=list.get(s)%>" id = "review_detail_view_img">
 				</div>
 				<%
-					}
-				%>
+					}}else{
+					
+				%><div style="height:20px;"></div><%} %>
 
-				<div
-					id="review_detail_view_title_total_bar">
-					<div
+				<div id="review_detail_view_title_total_bar" style="height:auto; margin-top:auto; top:auto;">
+					<div style="border-bottom:solid 1px #eaeaea;"><div
 						id="review_detail_view_title">
 						제목 :
 						<%=article.getRtitle().replaceAll("", "&nbsp").replaceAll("<", "&gt").replaceAll(">", "&gt")%></div>
@@ -86,25 +91,27 @@
 						<img src="img/readcount.png" style="width: 20px;"> &nbsp;
 						<%=article.getReadcount()%>
 					</span>
-					<div
-						id="review_detail_view_rcontent_bar">
-						<div id="review_detail_view_rcontent"><%=article.getRcontent().replaceAll("", "&nbsp").replaceAll("<", "&gt").replaceAll(">", "&gt")%></div>
 					</div>
-						
+					
+					<div
+						id="review_detail_view_rcontent_bar" style="height:auto;">
+						<div id="review_detail_view_rcontent" style="height:auto; min-height:350px; white-space: pre-line;"><%=article.getRcontent()%></div>
+					</div>
+						<div style ="position : relative; top : 12px">
 				<%
 					if (id != "id") {
 				
 			  %>
-			  <div style ="position : relative; top : 12px">
+			  
 			<a class="btn btn-success" style="color: white"
 			href="reviewModifyForm.bo?board_num=<%=article.getRnum() %>">
 			수정 </a> <a class="btn btn-success" style="color: white"
 			href="reviewDeleteForm.bo?board_num=<%=article.getRnum() %>&page=<%=nowPage%>">
-			삭제 </a> <a href="reviewList.bo?page=<%=nowPage%>" class="btn btn-success" style="color: white">목록</a>&nbsp;&nbsp;
-			</div>
+			삭제 </a>
 				<%
-					}
-				%>
+					} %><a href="reviewList.bo?page=<%=nowPage%>" class="btn btn-success" style="color: white">목록</a>&nbsp;&nbsp;
+					</div>
+			
 					<div
 						id="review_detail_view_date"><%=article.getDate()%></div>
 

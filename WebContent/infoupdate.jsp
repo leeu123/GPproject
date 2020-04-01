@@ -10,8 +10,7 @@
 
 <script>
 
-function modify()
-{
+function modify(){
 
 var pw = passwordcheck.pw.value
 if (pw =="")

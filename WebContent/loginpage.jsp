@@ -63,13 +63,22 @@ if(keyCode==13) login.submit();
 </head>
 <body>
 	<%@include file="header.jsp"%>
-
+    <% 
+    
+    String idid="";
+    if((String)request.getParameter("finded_id")!=null){
+    	
+    idid = (String)request.getParameter("finded_id");
+    
+    }
+   %>
+   
 	<section style="height: 960px;">
 		<div id="container">
 			<div id="login_box">
 				<form action="loginAction.jsp" method=post id="login" name="login">
 					<div id="login_id_textbox">
-						<input type="text" value='' name="id"
+						<input type="text" value="<%=idid%>" name="id"
 							id="login_idpw_text" placeholder="아이디"
 							onfocus="this.placeholder = ''" onblur="아이디'">
 					</div>

@@ -78,7 +78,7 @@
 	<div class="form-group">
 		<label for="rpass" class="col-sm-2 control-label">비밀번호</label>
 		<div class="col-sm-10">
-			<input type="text" class="form-control"  name="rpass" placeholder="게시글 비밀번호을 입력하세요" value="">
+			<input type="password" class="form-control"  name="rpass" placeholder="게시글 비밀번호을 입력하세요" value="">
 		</div>
 	</div>
 	<div class="form-group">
@@ -99,7 +99,7 @@
 		   <option>강원</option>
 		   <option>대전</option>
 		   <option>충남</option>
-		   <option>충붑</option>
+		   <option>충북</option>
 		   <option>세종</option>
 		   <option>부산</option>
 		   <option>울산</option>
