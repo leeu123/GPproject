@@ -11,7 +11,7 @@
 
 
 <head>
-<title>2020 한식 베스트 10</title>
+<title>GreenPlate</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="css/gpstyle2.css">
 <link rel="stylesheet" type="text/css" href="css/loginstyle.css" />
@@ -104,7 +104,7 @@
 							<td align="left"><div
 									style="font-size: 0.59cm; color: #353535; font-weight: 600;"><a
 								href="restaurantDetail.bo?rnum=<%=articleList.get(i).getRnum()%>">
-									<%=(i + 1)%>.&nbsp;<%=articleList.get(i).getStore()%><font
+									<%=articleList.get(i).getRnum()%>.&nbsp;<%=articleList.get(i).getStore()%><font
 										color="<%=color%>">&nbsp;&nbsp;<%=articleList.get(i).getAvg_pyung()%></font></a>
 								</div></td>
 							<td align="right"><img src="img/readcount.png"

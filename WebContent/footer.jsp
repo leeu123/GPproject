@@ -32,7 +32,7 @@
 						<li>|</li>
 						<li>고객설문 </li>
 						<li>|</li>
-						<li><a href ="ad.jsp" style ="color : white">광고문의</a></li>
+						<li><a href ="advertisement.jsp" style ="color : white">광고문의</a></li>
 						<li>|</li>
 						<li>개인정보처리방침</li>
 					</ul>

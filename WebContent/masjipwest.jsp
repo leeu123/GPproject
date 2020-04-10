@@ -54,7 +54,8 @@
 							for (int i = 0; i < rs.size(); i++) {
 								request.setAttribute("rnum", rs.get(i).getRnum());
 								//DTO_AD rd = ps.seleRestau(request, response); // 식당번호를 통해서 식당정보 받아오는 문장
-String color;
+								
+								String color;
 								
 								if(rs.get(i).getAvg_pyung()==0){
 									color = "gray";

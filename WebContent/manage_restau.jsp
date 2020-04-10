@@ -62,8 +62,8 @@ function whenErrorP() {
 	partyService ps = new partyService();
     List<DTO_AD> rs = ps.restauall(request, response);
     int pa = Integer.parseInt(request.getParameter("page"));
-    int pag = rs.size()/20;
-    int num = 11;
+    int pag = rs.size()/20; // maxpage 최대 페이지
+    int num = 11;  // 
     int pg = 20;
     int st = (pa-1)/10;
     
